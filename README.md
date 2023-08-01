@@ -10,11 +10,11 @@
 
 ​		方法的主要流程如下：首先，使用解析器从源代码中解析得到原始的抽象语法树；再使用精简器将原始抽象语法树中的多余信息去除，仅保留节点的层级信息和类型信息；最后，根据遍历顺序依次遍历抽象语法树节点并转换为一个数值型的编码节点序列。
 
-![](/Users/yys/Library/CloudStorage/OneDrive-个人/Documents/Ph.D/Papers/学位论文/figures/代码表示/ASTENS.svg)
+![](astensEncoder/figures/ASTENS.svg)
 
 ​		示例如下图：每个节点都将被表示为节点层级和节点类型两个部分，通过前序遍历将其转换为一个抽象语法树的节点序列，根据编码定义，将节点的层级关系编码为该节点结构编码，节点类型编码为类型编码。
 
-![](/Users/yys/Library/CloudStorage/OneDrive-个人/Documents/Ph.D/Papers/学位论文/figures/代码表示/ASTENS-example.svg)
+![](astensEncoder/figures/ASTENS-example.svg)
 
 #### 相关文献：
 

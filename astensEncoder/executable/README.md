@@ -1,5 +1,7 @@
 # Usage 使用手册
 
+Java版本：14.0.2
+
 ## astensEncoder.jar
 
 支持处理的语言：C/C++、Java、python3、JavaScript、golang

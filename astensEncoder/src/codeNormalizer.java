@@ -4,7 +4,7 @@ import java.io.IOException;
 public class codeNormalizer {
 
 	public static void main(String args[]) throws IOException {
-		String currentPath = "./";
+		String currentPath = "test/";
 		Boolean commentsDeletion = true;
 		Boolean codeNormalization = true;
 

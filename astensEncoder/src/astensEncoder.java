@@ -4,8 +4,8 @@ import java.io.IOException;
 public class astensEncoder {
 
 	public static void main(String args[]) throws IOException {
-		String currentPath = "./";
-		Boolean exportNodeValue = false;
+		String currentPath = "test/";
+		Boolean exportNodeValue = true;
 		Boolean exportDot = false;
 
 		String srcPath = currentPath + "/source/";

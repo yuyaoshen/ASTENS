@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -26,6 +27,7 @@ public class astensEncoderPython3 {
 	static ArrayList<String> nodeToken = new ArrayList<String>();
 	static ArrayList<String> typeCoding = new ArrayList<String>();
 	static ArrayList<String> lineNumber = new ArrayList<String>();
+	static ArrayList<String> seqPosNumber = new ArrayList<String>();
 
 	public void EncodingASTENS() throws IOException {
 		String srcPath = currentPath + "/source/";
@@ -52,6 +54,7 @@ public class astensEncoderPython3 {
 					nodeToken = new ArrayList<String>();
 					typeCoding = new ArrayList<String>();
 					lineNumber = new ArrayList<String>();
+					seqPosNumber = new ArrayList<String>();
 					// parsing AST and encoding sequence
 					ANTLRInputStream input = new ANTLRInputStream(inputString);
 					Python3Lexer lexer = new Python3Lexer(input);
@@ -91,7 +94,7 @@ public class astensEncoderPython3 {
 						String string = null;
 						if (exportNodeValue)
 							string = (structureCoding.get(j) + typeCoding.get(j) + " " + nodeType.get(j) + " "
-									+ nodeToken.get(j) + " " + lineNumber.get(j) + "\n");
+									+ lineNumber.get(j) + " " + seqPosNumber.get(j) + " " + nodeToken.get(j) + "\n");
 						else
 							string = (structureCoding.get(j) + typeCoding.get(j) + " " + nodeType.get(j) + " "
 									+ lineNumber.get(j) + "\n");
@@ -146,6 +149,7 @@ public class astensEncoderPython3 {
 			nodeToken.add(ruleToken);
 			typeCoding.add(ruleIndex);
 			lineNumber.add(Integer.toString(((ParserRuleContext) ctx).getStart().getLine()));
+			seqPosNumber.add(Integer.toString(((ParserRuleContext) ctx).getStart().getStartIndex()));
 		}
 		for (int i = 0; i < ctx.getChildCount(); i++) {
 			ParseTree element = ctx.getChild(i);

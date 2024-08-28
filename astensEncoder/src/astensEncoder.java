@@ -6,10 +6,12 @@ public class astensEncoder {
 	public static void main(String args[]) throws IOException {
 		String currentPath = "test/";
 		Boolean exportNodeValue = true;
-		Boolean exportDot = false;
+		Boolean exportDot = true;
+		Boolean coloredNodeFlag = true;
 
 		String srcPath = currentPath + "/source/";
 		String writePath = currentPath + "/astens/";
+		String dotPath = currentPath + "/dot/";
 		String donePath = currentPath + "/done/";
 		String errorPath = currentPath + "/errors/";
 
@@ -18,6 +20,9 @@ public class astensEncoder {
 			System.out.println("No source files!");
 		else {
 			file = new File(writePath);
+			if (!file.exists())
+				file.mkdir();
+			file = new File(dotPath);
 			if (!file.exists())
 				file.mkdir();
 			file = new File(donePath);
@@ -43,6 +48,7 @@ public class astensEncoder {
 			astensJava.currentPath = currentPath;
 			astensJava.exportNodeValue = exportNodeValue;
 			astensJava.exportDot = exportDot;
+			astensJava.coloredNodeFlag = coloredNodeFlag;
 			astensJava.EncodingASTENS();
 
 			astensEncoderPython3 astensPython3 = new astensEncoderPython3();

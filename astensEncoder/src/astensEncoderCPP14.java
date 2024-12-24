@@ -110,6 +110,8 @@ public class astensEncoderCPP14 {
 					}
 
 					if (exportDot) {
+						if (coloredNodeFlag)
+							getColorMap();
 						File writeDOTfile = new File(dotPath + filename + ".dot");
 						if (writeDOTfile.exists())
 							writeDOTfile.delete();
@@ -200,14 +202,67 @@ public class astensEncoderCPP14 {
 		}
 	}
 
+	private static void getColorMap() {
+		String colorFileName = currentPath + "../libs/ColorMap_81.txt";
+		Path colorMapPath = Paths.get(colorFileName);
+		try {
+			@SuppressWarnings("resource")
+			Scanner scannerColor = new Scanner(colorMapPath);
+			String colorMapLine;
+			String[] RGB;
+			while (scannerColor.hasNextLine()) {
+				colorMapLine = scannerColor.nextLine();
+				RGB = colorMapLine.split(" ");
+				int r = Integer.parseInt(RGB[0]);
+				int g = Integer.parseInt(RGB[1]);
+				int b = Integer.parseInt(RGB[2]);
+				String hex = Integer.toHexString(r) + Integer.toHexString(g) + Integer.toHexString(b);
+				colorMap.add(hex);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		String nodeTypeList = currentPath + "../libs/C-nodeTypes-wo_sc.uniq.txt";
+		Path nodeTypeListPath = Paths.get(nodeTypeList);
+		try {
+			@SuppressWarnings("resource")
+			Scanner scannerNode = new Scanner(nodeTypeListPath);
+			String nodeTypeLine;
+			String[] nodeList;
+			while (scannerNode.hasNextLine()) {
+				nodeTypeLine = scannerNode.nextLine();
+				nodeList = nodeTypeLine.split(" ");
+				String SC = nodeList[1];
+				nodeTypeStatList.add(SC);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	private static void printLabel() {
 		for (int i = 0; i < level.size(); i++) {
-			if (exportNodeValue)
-				System.out.println(level.get(i) + i + "[label=\"" + nodeType.get(i) + "\\n(" + structureCoding.get(i)
-						+ "," + typeCoding.get(i) + ")\\n" + nodeToken.get(i).replaceAll("\"", "\'") + "\",shape=box]");
-			else
-				System.out.println(level.get(i) + i + "[label=\"" + nodeType.get(i) + "\\n(" + structureCoding.get(i)
-						+ "," + typeCoding.get(i) + ")\",shape=box]");
+			if (coloredNodeFlag) {
+				int idx = nodeTypeStatList.indexOf(typeCoding.get(i));
+				if (exportNodeValue)
+					System.out
+							.println(level.get(i) + i + "[label=\"" + nodeType.get(i) + "\\n(" + structureCoding.get(i)
+									+ "," + typeCoding.get(i) + ")\\n" + nodeToken.get(i).replaceAll("\"", "\'")
+									+ "\",shape=box,style=filled,color=\"#" + colorMap.get(idx) + "\"]");
+				else
+					System.out.println(level.get(i) + i + "[label=\"" + nodeType.get(i) + "\\n("
+							+ structureCoding.get(i) + "," + typeCoding.get(i) + ")\",shape=box,style=filled,color=\"#"
+							+ colorMap.get(idx) + "\"]");
+			} else {
+				if (exportNodeValue)
+					System.out.println(level.get(i) + i + "[label=\"" + nodeType.get(i) + "\\n("
+							+ structureCoding.get(i) + "," + typeCoding.get(i) + ")\\n"
+							+ nodeToken.get(i).replaceAll("\"", "\'") + "\",shape=box]");
+				else
+					System.out.println(level.get(i) + i + "[label=\"" + nodeType.get(i) + "\\n("
+							+ structureCoding.get(i) + "," + typeCoding.get(i) + ")\",shape=box]");
+			}
 		}
 	}
 

@@ -36,12 +36,14 @@ public class astensEncoder {
 			astensC.currentPath = currentPath;
 			astensC.exportNodeValue = exportNodeValue;
 			astensC.exportDot = exportDot;
+			astensC.coloredNodeFlag = coloredNodeFlag;
 			astensC.EncodingASTENS();
 
 //			astensEncoderCPP14 astensCPP14 = new astensEncoderCPP14();
 //			astensCPP14.currentPath = currentPath;
 //			astensCPP14.exportNodeValue = exportNodeValue;
 //			astensCPP14.exportDot = exportDot;
+//			astensCPP14.coloredNodeFlag = coloredNodeFlag;
 //			astensCPP14.EncodingASTENS();
 
 			astensEncoderJava astensJava = new astensEncoderJava();

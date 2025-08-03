@@ -6,7 +6,7 @@ public class codeNormalizer {
 	public static void main(String args[]) throws IOException {
 		String currentPath = "test/";
 		Boolean commentsDeletion = true;
-		Boolean codeNormalization = false;
+		Boolean codeNormalization = true;
 
 		String srcPath = currentPath + "/source/";
 		String writePath = currentPath + "/normalization/";

@@ -80,22 +80,21 @@ public class codeNormalizerC {
 							content = content.replaceAll(
 									"\\b(" + variableNames.get(j) + ")\\b(?:(?=\\s*\\w+\\()|(?!\\s*\\w+))(?!\\s*\\()",
 									"VAR_" + j);
+
+						File writefile = new File(writePath + filename + ".new");
+						if (writefile.exists())
+							writefile.delete();
+						writefile.createNewFile();// create output file
+						FileOutputStream fos = null;
+						PrintStream ps = null;
+						fos = new FileOutputStream(writefile, true);
+						ps = new PrintStream(fos);
+						ps.print(content);
+						ps.close();
+
+						Files.move(Paths.get(files[i].getPath()), Paths.get(donePath + filename),
+								StandardCopyOption.REPLACE_EXISTING);
 					}
-
-					File writefile = new File(writePath + filename + ".new");
-					if (writefile.exists())
-						writefile.delete();
-					writefile.createNewFile();// create output file
-					FileOutputStream fos = null;
-					PrintStream ps = null;
-					fos = new FileOutputStream(writefile, true);
-					ps = new PrintStream(fos);
-					ps.print(content);
-					ps.close();
-
-					Files.move(Paths.get(files[i].getPath()), Paths.get(donePath + filename),
-							StandardCopyOption.REPLACE_EXISTING);
-
 				}
 			}
 		}

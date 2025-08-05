@@ -64,9 +64,9 @@ public class astensEncoderGolang {
 					seqPosNumber = new ArrayList<String>();
 					// parsing AST and encoding sequence
 					ANTLRInputStream input = new ANTLRInputStream(inputString);
-					GolangLexer lexer = new GolangLexer(input);
+					GoLexer lexer = new GoLexer(input);
 					CommonTokenStream tokens = new CommonTokenStream(lexer);
-					GolangParser parser = new GolangParser(tokens);
+					GoParser parser = new GoParser(tokens);
 					ParserRuleContext ctx = parser.sourceFile();
 					if (parser.getNumberOfSyntaxErrors() > 0) {
 						Files.move(Paths.get(files[i].getPath()), Paths.get(errorPath + filename),
@@ -138,7 +138,7 @@ public class astensEncoderGolang {
 			level.add(Integer.toString(indentation));
 
 			// get the node type of each node and its type coding
-			String ruleName = GolangParser.ruleNames[ctx.getRuleIndex()];
+			String ruleName = GoParser.ruleNames[ctx.getRuleIndex()];
 			String ruleIndex = "unknown";
 			String ruleToken = " ";
 			Token startToken = ((ParserRuleContext) ctx).start;

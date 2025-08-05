@@ -1,4 +1,4 @@
-// Generated from C.g4 by ANTLR 4.9.2
+// Generated from C.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -497,6 +497,16 @@ public interface CListener extends ParseTreeListener {
 	 */
 	void exitDirectDeclarator(CParser.DirectDeclaratorContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link CParser#vcSpecificModifer}.
+	 * @param ctx the parse tree
+	 */
+	void enterVcSpecificModifer(CParser.VcSpecificModiferContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link CParser#vcSpecificModifer}.
+	 * @param ctx the parse tree
+	 */
+	void exitVcSpecificModifer(CParser.VcSpecificModiferContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link CParser#gccDeclaratorExtension}.
 	 * @param ctx the parse tree
 	 */
@@ -536,16 +546,6 @@ public interface CListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitGccAttribute(CParser.GccAttributeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link CParser#nestedParenthesesBlock}.
-	 * @param ctx the parse tree
-	 */
-	void enterNestedParenthesesBlock(CParser.NestedParenthesesBlockContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CParser#nestedParenthesesBlock}.
-	 * @param ctx the parse tree
-	 */
-	void exitNestedParenthesesBlock(CParser.NestedParenthesesBlockContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link CParser#pointer}.
 	 * @param ctx the parse tree

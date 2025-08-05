@@ -1,4 +1,4 @@
-// Generated from C.g4 by ANTLR 4.9.2
+// Generated from C.g4 by ANTLR 4.13.2
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -9,6 +9,7 @@ import org.antlr.v4.runtime.tree.TerminalNode;
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
+@SuppressWarnings("CheckReturnValue")
 public class CBaseListener implements CListener {
 	/**
 	 * {@inheritDoc}
@@ -603,6 +604,18 @@ public class CBaseListener implements CListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterVcSpecificModifer(CParser.VcSpecificModiferContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVcSpecificModifer(CParser.VcSpecificModiferContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterGccDeclaratorExtension(CParser.GccDeclaratorExtensionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -646,18 +659,6 @@ public class CBaseListener implements CListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitGccAttribute(CParser.GccAttributeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterNestedParenthesesBlock(CParser.NestedParenthesesBlockContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitNestedParenthesesBlock(CParser.NestedParenthesesBlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

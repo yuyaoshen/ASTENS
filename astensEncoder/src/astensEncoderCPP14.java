@@ -67,7 +67,7 @@ public class astensEncoderCPP14 {
 					CPP14Lexer lexer = new CPP14Lexer(input);
 					CommonTokenStream tokens = new CommonTokenStream(lexer);
 					CPP14Parser parser = new CPP14Parser(tokens);
-					ParserRuleContext ctx = parser.translationunit();
+					ParserRuleContext ctx = parser.translationUnit();
 					if (parser.getNumberOfSyntaxErrors() > 0) {
 						Files.move(Paths.get(files[i].getPath()), Paths.get(errorPath + filename),
 								StandardCopyOption.REPLACE_EXISTING);

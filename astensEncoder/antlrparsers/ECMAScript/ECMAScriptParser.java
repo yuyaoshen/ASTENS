@@ -1,4 +1,4 @@
-// Generated from ECMAScript.g4 by ANTLR 4.9.2
+// Generated from ECMAScript.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -8,9 +8,9 @@ import java.util.List;
 import java.util.Iterator;
 import java.util.ArrayList;
 
-@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
+@SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue", "this-escape"})
 public class ECMAScriptParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.9.2", RuntimeMetaData.VERSION); }
+	static { RuntimeMetaData.checkVersion("4.13.2", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -38,7 +38,7 @@ public class ECMAScriptParser extends Parser {
 	public static final int
 		RULE_program = 0, RULE_sourceElements = 1, RULE_sourceElement = 2, RULE_statement = 3, 
 		RULE_block = 4, RULE_statementList = 5, RULE_variableStatement = 6, RULE_variableDeclarationList = 7, 
-		RULE_variableDeclaration = 8, RULE_initialiser = 9, RULE_emptyStatement = 10, 
+		RULE_variableDeclaration = 8, RULE_initialiser = 9, RULE_emptyStatement_ = 10, 
 		RULE_expressionStatement = 11, RULE_ifStatement = 12, RULE_iterationStatement = 13, 
 		RULE_continueStatement = 14, RULE_breakStatement = 15, RULE_returnStatement = 16, 
 		RULE_withStatement = 17, RULE_switchStatement = 18, RULE_caseBlock = 19, 
@@ -52,12 +52,12 @@ public class ECMAScriptParser extends Parser {
 		RULE_expressionSequence = 42, RULE_singleExpression = 43, RULE_assignmentOperator = 44, 
 		RULE_literal = 45, RULE_numericLiteral = 46, RULE_identifierName = 47, 
 		RULE_reservedWord = 48, RULE_keyword = 49, RULE_futureReservedWord = 50, 
-		RULE_getter = 51, RULE_setter = 52, RULE_eos = 53, RULE_eof = 54, RULE_identifierNonterminal = 55;
+		RULE_getter = 51, RULE_setter = 52, RULE_eos = 53, RULE_eof = 54;
 	private static String[] makeRuleNames() {
 		return new String[] {
 			"program", "sourceElements", "sourceElement", "statement", "block", "statementList", 
 			"variableStatement", "variableDeclarationList", "variableDeclaration", 
-			"initialiser", "emptyStatement", "expressionStatement", "ifStatement", 
+			"initialiser", "emptyStatement_", "expressionStatement", "ifStatement", 
 			"iterationStatement", "continueStatement", "breakStatement", "returnStatement", 
 			"withStatement", "switchStatement", "caseBlock", "caseClauses", "caseClause", 
 			"defaultClause", "labelledStatement", "throwStatement", "tryStatement", 
@@ -67,7 +67,7 @@ public class ECMAScriptParser extends Parser {
 			"propertyName", "propertySetParameterList", "arguments", "argumentList", 
 			"expressionSequence", "singleExpression", "assignmentOperator", "literal", 
 			"numericLiteral", "identifierName", "reservedWord", "keyword", "futureReservedWord", 
-			"getter", "setter", "eos", "eof", "identifierNonterminal"
+			"getter", "setter", "eos", "eof"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -80,7 +80,7 @@ public class ECMAScriptParser extends Parser {
 			"'=='", "'!='", "'==='", "'!=='", "'&'", "'^'", "'|'", "'&&'", "'||'", 
 			"'*='", "'/='", "'%='", "'+='", "'-='", "'<<='", "'>>='", "'>>>='", "'&='", 
 			"'^='", "'|='", "'null'", null, null, null, null, "'break'", "'do'", 
-			"'instanceof'", "'typeof'", "'case'", "'else'", "'new'", null, "'catch'", 
+			"'instanceof'", "'typeof'", "'case'", "'else'", "'new'", "'var'", "'catch'", 
 			"'finally'", "'return'", "'void'", "'continue'", "'for'", "'switch'", 
 			"'while'", "'debugger'", "'function'", "'this'", "'with'", "'default'", 
 			"'if'", "'throw'", "'delete'", "'in'", "'try'", "'class'", "'enum'", 
@@ -157,7 +157,7 @@ public class ECMAScriptParser extends Parser {
 	public ATN getATN() { return _ATN; }
 
 
-	  
+
 	    /**
 	     * Returns {@code true} iff on the current index of the parser's
 	     * token stream a token of the given {@code type} exists on the
@@ -222,13 +222,14 @@ public class ECMAScriptParser extends Parser {
 	        // Check if the token is, or contains a line terminator.
 	        return (type == MultiLineComment && (text.contains("\r") || text.contains("\n"))) ||
 	                (type == LineTerminator);
-	    }                                
+	    }
 
 	public ECMAScriptParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ProgramContext extends ParserRuleContext {
 		public TerminalNode EOF() { return getToken(ECMAScriptParser.EOF, 0); }
 		public SourceElementsContext sourceElements() {
@@ -246,11 +247,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitProgram(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitProgram(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ProgramContext program() throws RecognitionException {
@@ -259,17 +255,17 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(113);
+			setState(111);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 			case 1:
 				{
-				setState(112);
+				setState(110);
 				sourceElements();
 				}
 				break;
 			}
-			setState(115);
+			setState(113);
 			match(EOF);
 			}
 		}
@@ -284,6 +280,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class SourceElementsContext extends ParserRuleContext {
 		public List<SourceElementContext> sourceElement() {
 			return getRuleContexts(SourceElementContext.class);
@@ -303,11 +300,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitSourceElements(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitSourceElements(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final SourceElementsContext sourceElements() throws RecognitionException {
@@ -317,7 +309,7 @@ public class ECMAScriptParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(118); 
+			setState(116); 
 			_errHandler.sync(this);
 			_alt = 1;
 			do {
@@ -325,7 +317,7 @@ public class ECMAScriptParser extends Parser {
 				case 1:
 					{
 					{
-					setState(117);
+					setState(115);
 					sourceElement();
 					}
 					}
@@ -333,7 +325,7 @@ public class ECMAScriptParser extends Parser {
 				default:
 					throw new NoViableAltException(this);
 				}
-				setState(120); 
+				setState(118); 
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,1,_ctx);
 			} while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER );
@@ -350,6 +342,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class SourceElementContext extends ParserRuleContext {
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
@@ -369,31 +362,28 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitSourceElement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitSourceElement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final SourceElementContext sourceElement() throws RecognitionException {
 		SourceElementContext _localctx = new SourceElementContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_sourceElement);
 		try {
-			setState(124);
+			setState(123);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(122);
+				setState(120);
+				if (!(_input.LA(1) != Function)) throw new FailedPredicateException(this, "_input.LA(1) != Function");
+				setState(121);
 				statement();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(123);
+				setState(122);
 				functionDeclaration();
 				}
 				break;
@@ -410,6 +400,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class StatementContext extends ParserRuleContext {
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
@@ -417,8 +408,8 @@ public class ECMAScriptParser extends Parser {
 		public VariableStatementContext variableStatement() {
 			return getRuleContext(VariableStatementContext.class,0);
 		}
-		public EmptyStatementContext emptyStatement() {
-			return getRuleContext(EmptyStatementContext.class,0);
+		public EmptyStatement_Context emptyStatement_() {
+			return getRuleContext(EmptyStatement_Context.class,0);
 		}
 		public ExpressionStatementContext expressionStatement() {
 			return getRuleContext(ExpressionStatementContext.class,0);
@@ -468,11 +459,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final StatementContext statement() throws RecognitionException {
@@ -485,27 +471,29 @@ public class ECMAScriptParser extends Parser {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(126);
+				setState(125);
 				block();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(127);
+				setState(126);
 				variableStatement();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(128);
-				emptyStatement();
+				setState(127);
+				emptyStatement_();
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
+				setState(128);
+				if (!(_input.LA(1) != OpenBrace)) throw new FailedPredicateException(this, "_input.LA(1) != OpenBrace");
 				setState(129);
 				expressionStatement();
 				}
@@ -600,6 +588,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class BlockContext extends ParserRuleContext {
 		public TerminalNode OpenBrace() { return getToken(ECMAScriptParser.OpenBrace, 0); }
 		public TerminalNode CloseBrace() { return getToken(ECMAScriptParser.CloseBrace, 0); }
@@ -617,11 +606,6 @@ public class ECMAScriptParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitBlock(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitBlock(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -658,6 +642,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class StatementListContext extends ParserRuleContext {
 		public List<StatementContext> statement() {
 			return getRuleContexts(StatementContext.class);
@@ -676,11 +661,6 @@ public class ECMAScriptParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitStatementList(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitStatementList(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -724,6 +704,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class VariableStatementContext extends ParserRuleContext {
 		public TerminalNode Var() { return getToken(ECMAScriptParser.Var, 0); }
 		public VariableDeclarationListContext variableDeclarationList() {
@@ -743,11 +724,6 @@ public class ECMAScriptParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitVariableStatement(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitVariableStatement(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -776,6 +752,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class VariableDeclarationListContext extends ParserRuleContext {
 		public List<VariableDeclarationContext> variableDeclaration() {
 			return getRuleContexts(VariableDeclarationContext.class);
@@ -798,11 +775,6 @@ public class ECMAScriptParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitVariableDeclarationList(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitVariableDeclarationList(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -846,10 +818,9 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class VariableDeclarationContext extends ParserRuleContext {
-		public IdentifierNonterminalContext identifierNonterminal() {
-			return getRuleContext(IdentifierNonterminalContext.class,0);
-		}
+		public TerminalNode Identifier() { return getToken(ECMAScriptParser.Identifier, 0); }
 		public InitialiserContext initialiser() {
 			return getRuleContext(InitialiserContext.class,0);
 		}
@@ -865,11 +836,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitVariableDeclaration(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitVariableDeclaration(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final VariableDeclarationContext variableDeclaration() throws RecognitionException {
@@ -879,7 +845,7 @@ public class ECMAScriptParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(166);
-			identifierNonterminal();
+			match(Identifier);
 			setState(168);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
@@ -903,6 +869,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class InitialiserContext extends ParserRuleContext {
 		public TerminalNode Assign() { return getToken(ECMAScriptParser.Assign, 0); }
 		public SingleExpressionContext singleExpression() {
@@ -919,11 +886,6 @@ public class ECMAScriptParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitInitialiser(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitInitialiser(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -950,30 +912,26 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
-	public static class EmptyStatementContext extends ParserRuleContext {
+	@SuppressWarnings("CheckReturnValue")
+	public static class EmptyStatement_Context extends ParserRuleContext {
 		public TerminalNode SemiColon() { return getToken(ECMAScriptParser.SemiColon, 0); }
-		public EmptyStatementContext(ParserRuleContext parent, int invokingState) {
+		public EmptyStatement_Context(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_emptyStatement; }
+		@Override public int getRuleIndex() { return RULE_emptyStatement_; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).enterEmptyStatement(this);
+			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).enterEmptyStatement_(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitEmptyStatement(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitEmptyStatement(this);
-			else return visitor.visitChildren(this);
+			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitEmptyStatement_(this);
 		}
 	}
 
-	public final EmptyStatementContext emptyStatement() throws RecognitionException {
-		EmptyStatementContext _localctx = new EmptyStatementContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_emptyStatement);
+	public final EmptyStatement_Context emptyStatement_() throws RecognitionException {
+		EmptyStatement_Context _localctx = new EmptyStatement_Context(_ctx, getState());
+		enterRule(_localctx, 20, RULE_emptyStatement_);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
@@ -992,6 +950,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ExpressionStatementContext extends ParserRuleContext {
 		public ExpressionSequenceContext expressionSequence() {
 			return getRuleContext(ExpressionSequenceContext.class,0);
@@ -1011,11 +970,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitExpressionStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitExpressionStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ExpressionStatementContext expressionStatement() throws RecognitionException {
@@ -1025,10 +979,8 @@ public class ECMAScriptParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(175);
-			if (!((_input.LA(1) != OpenBrace) && (_input.LA(1) != Function))) throw new FailedPredicateException(this, "(_input.LA(1) != OpenBrace) && (_input.LA(1) != Function)");
-			setState(176);
 			expressionSequence();
-			setState(177);
+			setState(176);
 			eos();
 			}
 		}
@@ -1043,6 +995,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class IfStatementContext extends ParserRuleContext {
 		public TerminalNode If() { return getToken(ECMAScriptParser.If, 0); }
 		public TerminalNode OpenParen() { return getToken(ECMAScriptParser.OpenParen, 0); }
@@ -1069,11 +1022,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitIfStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitIfStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final IfStatementContext ifStatement() throws RecognitionException {
@@ -1082,24 +1030,24 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(179);
+			setState(178);
 			match(If);
-			setState(180);
+			setState(179);
 			match(OpenParen);
-			setState(181);
+			setState(180);
 			expressionSequence();
-			setState(182);
+			setState(181);
 			match(CloseParen);
-			setState(183);
+			setState(182);
 			statement();
-			setState(186);
+			setState(185);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,8,_ctx) ) {
 			case 1:
 				{
-				setState(184);
+				setState(183);
 				match(Else);
-				setState(185);
+				setState(184);
 				statement();
 				}
 				break;
@@ -1117,6 +1065,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class IterationStatementContext extends ParserRuleContext {
 		public IterationStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -1128,6 +1077,7 @@ public class ECMAScriptParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class DoStatementContext extends IterationStatementContext {
 		public TerminalNode Do() { return getToken(ECMAScriptParser.Do, 0); }
 		public StatementContext statement() {
@@ -1151,12 +1101,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitDoStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitDoStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class ForVarStatementContext extends IterationStatementContext {
 		public TerminalNode For() { return getToken(ECMAScriptParser.For, 0); }
 		public TerminalNode OpenParen() { return getToken(ECMAScriptParser.OpenParen, 0); }
@@ -1187,12 +1133,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitForVarStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitForVarStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class ForVarInStatementContext extends IterationStatementContext {
 		public TerminalNode For() { return getToken(ECMAScriptParser.For, 0); }
 		public TerminalNode OpenParen() { return getToken(ECMAScriptParser.OpenParen, 0); }
@@ -1217,12 +1159,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitForVarInStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitForVarInStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class WhileStatementContext extends IterationStatementContext {
 		public TerminalNode While() { return getToken(ECMAScriptParser.While, 0); }
 		public TerminalNode OpenParen() { return getToken(ECMAScriptParser.OpenParen, 0); }
@@ -1242,12 +1180,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitWhileStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitWhileStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class ForStatementContext extends IterationStatementContext {
 		public TerminalNode For() { return getToken(ECMAScriptParser.For, 0); }
 		public TerminalNode OpenParen() { return getToken(ECMAScriptParser.OpenParen, 0); }
@@ -1274,12 +1208,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitForStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitForStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class ForInStatementContext extends IterationStatementContext {
 		public TerminalNode For() { return getToken(ECMAScriptParser.For, 0); }
 		public TerminalNode OpenParen() { return getToken(ECMAScriptParser.OpenParen, 0); }
@@ -1303,11 +1233,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitForInStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitForInStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final IterationStatementContext iterationStatement() throws RecognitionException {
@@ -1315,26 +1240,26 @@ public class ECMAScriptParser extends Parser {
 		enterRule(_localctx, 26, RULE_iterationStatement);
 		int _la;
 		try {
-			setState(249);
+			setState(248);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
 			case 1:
 				_localctx = new DoStatementContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(188);
+				setState(187);
 				match(Do);
-				setState(189);
+				setState(188);
 				statement();
-				setState(190);
+				setState(189);
 				match(While);
-				setState(191);
+				setState(190);
 				match(OpenParen);
-				setState(192);
+				setState(191);
 				expressionSequence();
-				setState(193);
+				setState(192);
 				match(CloseParen);
-				setState(194);
+				setState(193);
 				eos();
 				}
 				break;
@@ -1342,15 +1267,15 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new WhileStatementContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(196);
+				setState(195);
 				match(While);
-				setState(197);
+				setState(196);
 				match(OpenParen);
-				setState(198);
+				setState(197);
 				expressionSequence();
-				setState(199);
+				setState(198);
 				match(CloseParen);
-				setState(200);
+				setState(199);
 				statement();
 				}
 				break;
@@ -1358,47 +1283,47 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new ForStatementContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(202);
+				setState(201);
 				match(For);
-				setState(203);
+				setState(202);
 				match(OpenParen);
-				setState(205);
+				setState(204);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral) | (1L << Typeof) | (1L << New))) != 0) || ((((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & ((1L << (Void - 67)) | (1L << (Function - 67)) | (1L << (This - 67)) | (1L << (Delete - 67)) | (1L << (Identifier - 67)) | (1L << (StringLiteral - 67)))) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 5257952564957118634L) != 0) || ((((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & 6442455233L) != 0)) {
 					{
-					setState(204);
+					setState(203);
 					expressionSequence();
 					}
 				}
 
-				setState(207);
+				setState(206);
 				match(SemiColon);
-				setState(209);
+				setState(208);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral) | (1L << Typeof) | (1L << New))) != 0) || ((((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & ((1L << (Void - 67)) | (1L << (Function - 67)) | (1L << (This - 67)) | (1L << (Delete - 67)) | (1L << (Identifier - 67)) | (1L << (StringLiteral - 67)))) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 5257952564957118634L) != 0) || ((((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & 6442455233L) != 0)) {
 					{
-					setState(208);
+					setState(207);
 					expressionSequence();
 					}
 				}
 
-				setState(211);
+				setState(210);
 				match(SemiColon);
-				setState(213);
+				setState(212);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral) | (1L << Typeof) | (1L << New))) != 0) || ((((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & ((1L << (Void - 67)) | (1L << (Function - 67)) | (1L << (This - 67)) | (1L << (Delete - 67)) | (1L << (Identifier - 67)) | (1L << (StringLiteral - 67)))) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 5257952564957118634L) != 0) || ((((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & 6442455233L) != 0)) {
 					{
-					setState(212);
+					setState(211);
 					expressionSequence();
 					}
 				}
 
-				setState(215);
+				setState(214);
 				match(CloseParen);
-				setState(216);
+				setState(215);
 				statement();
 				}
 				break;
@@ -1406,41 +1331,41 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new ForVarStatementContext(_localctx);
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(217);
+				setState(216);
 				match(For);
-				setState(218);
+				setState(217);
 				match(OpenParen);
-				setState(219);
+				setState(218);
 				match(Var);
-				setState(220);
+				setState(219);
 				variableDeclarationList();
-				setState(221);
+				setState(220);
 				match(SemiColon);
-				setState(223);
+				setState(222);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral) | (1L << Typeof) | (1L << New))) != 0) || ((((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & ((1L << (Void - 67)) | (1L << (Function - 67)) | (1L << (This - 67)) | (1L << (Delete - 67)) | (1L << (Identifier - 67)) | (1L << (StringLiteral - 67)))) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 5257952564957118634L) != 0) || ((((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & 6442455233L) != 0)) {
 					{
-					setState(222);
+					setState(221);
 					expressionSequence();
 					}
 				}
 
-				setState(225);
+				setState(224);
 				match(SemiColon);
-				setState(227);
+				setState(226);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral) | (1L << Typeof) | (1L << New))) != 0) || ((((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & ((1L << (Void - 67)) | (1L << (Function - 67)) | (1L << (This - 67)) | (1L << (Delete - 67)) | (1L << (Identifier - 67)) | (1L << (StringLiteral - 67)))) != 0)) {
+				if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 5257952564957118634L) != 0) || ((((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & 6442455233L) != 0)) {
 					{
-					setState(226);
+					setState(225);
 					expressionSequence();
 					}
 				}
 
-				setState(229);
+				setState(228);
 				match(CloseParen);
-				setState(230);
+				setState(229);
 				statement();
 				}
 				break;
@@ -1448,19 +1373,19 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new ForInStatementContext(_localctx);
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(232);
+				setState(231);
 				match(For);
-				setState(233);
+				setState(232);
 				match(OpenParen);
-				setState(234);
+				setState(233);
 				singleExpression(0);
-				setState(235);
+				setState(234);
 				match(In);
-				setState(236);
+				setState(235);
 				expressionSequence();
-				setState(237);
+				setState(236);
 				match(CloseParen);
-				setState(238);
+				setState(237);
 				statement();
 				}
 				break;
@@ -1468,21 +1393,21 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new ForVarInStatementContext(_localctx);
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(240);
+				setState(239);
 				match(For);
-				setState(241);
+				setState(240);
 				match(OpenParen);
-				setState(242);
+				setState(241);
 				match(Var);
-				setState(243);
+				setState(242);
 				variableDeclaration();
-				setState(244);
+				setState(243);
 				match(In);
-				setState(245);
+				setState(244);
 				expressionSequence();
-				setState(246);
+				setState(245);
 				match(CloseParen);
-				setState(247);
+				setState(246);
 				statement();
 				}
 				break;
@@ -1499,14 +1424,13 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ContinueStatementContext extends ParserRuleContext {
 		public TerminalNode Continue() { return getToken(ECMAScriptParser.Continue, 0); }
 		public EosContext eos() {
 			return getRuleContext(EosContext.class,0);
 		}
-		public IdentifierNonterminalContext identifierNonterminal() {
-			return getRuleContext(IdentifierNonterminalContext.class,0);
-		}
+		public TerminalNode Identifier() { return getToken(ECMAScriptParser.Identifier, 0); }
 		public ContinueStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1519,11 +1443,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitContinueStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitContinueStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ContinueStatementContext continueStatement() throws RecognitionException {
@@ -1532,15 +1451,17 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(251);
+			setState(250);
 			match(Continue);
 			setState(253);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
 			case 1:
 				{
+				setState(251);
+				if (!(!here(LineTerminator))) throw new FailedPredicateException(this, "!here(LineTerminator)");
 				setState(252);
-				identifierNonterminal();
+				match(Identifier);
 				}
 				break;
 			}
@@ -1559,14 +1480,13 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class BreakStatementContext extends ParserRuleContext {
 		public TerminalNode Break() { return getToken(ECMAScriptParser.Break, 0); }
 		public EosContext eos() {
 			return getRuleContext(EosContext.class,0);
 		}
-		public IdentifierNonterminalContext identifierNonterminal() {
-			return getRuleContext(IdentifierNonterminalContext.class,0);
-		}
+		public TerminalNode Identifier() { return getToken(ECMAScriptParser.Identifier, 0); }
 		public BreakStatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -1579,11 +1499,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitBreakStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitBreakStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final BreakStatementContext breakStatement() throws RecognitionException {
@@ -1594,17 +1509,19 @@ public class ECMAScriptParser extends Parser {
 			{
 			setState(257);
 			match(Break);
-			setState(259);
+			setState(260);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,16,_ctx) ) {
 			case 1:
 				{
 				setState(258);
-				identifierNonterminal();
+				if (!(!here(LineTerminator))) throw new FailedPredicateException(this, "!here(LineTerminator)");
+				setState(259);
+				match(Identifier);
 				}
 				break;
 			}
-			setState(261);
+			setState(262);
 			eos();
 			}
 		}
@@ -1619,6 +1536,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ReturnStatementContext extends ParserRuleContext {
 		public TerminalNode Return() { return getToken(ECMAScriptParser.Return, 0); }
 		public EosContext eos() {
@@ -1639,11 +1557,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitReturnStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitReturnStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ReturnStatementContext returnStatement() throws RecognitionException {
@@ -1652,19 +1565,21 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(263);
+			setState(264);
 			match(Return);
-			setState(265);
+			setState(267);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,17,_ctx) ) {
 			case 1:
 				{
-				setState(264);
+				setState(265);
+				if (!(!here(LineTerminator))) throw new FailedPredicateException(this, "!here(LineTerminator)");
+				setState(266);
 				expressionSequence();
 				}
 				break;
 			}
-			setState(267);
+			setState(269);
 			eos();
 			}
 		}
@@ -1679,6 +1594,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class WithStatementContext extends ParserRuleContext {
 		public TerminalNode With() { return getToken(ECMAScriptParser.With, 0); }
 		public TerminalNode OpenParen() { return getToken(ECMAScriptParser.OpenParen, 0); }
@@ -1701,11 +1617,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitWithStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitWithStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final WithStatementContext withStatement() throws RecognitionException {
@@ -1714,15 +1625,15 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(269);
-			match(With);
-			setState(270);
-			match(OpenParen);
 			setState(271);
-			expressionSequence();
+			match(With);
 			setState(272);
-			match(CloseParen);
+			match(OpenParen);
 			setState(273);
+			expressionSequence();
+			setState(274);
+			match(CloseParen);
+			setState(275);
 			statement();
 			}
 		}
@@ -1737,6 +1648,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class SwitchStatementContext extends ParserRuleContext {
 		public TerminalNode Switch() { return getToken(ECMAScriptParser.Switch, 0); }
 		public TerminalNode OpenParen() { return getToken(ECMAScriptParser.OpenParen, 0); }
@@ -1759,11 +1671,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitSwitchStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitSwitchStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final SwitchStatementContext switchStatement() throws RecognitionException {
@@ -1772,15 +1679,15 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(275);
-			match(Switch);
-			setState(276);
-			match(OpenParen);
 			setState(277);
-			expressionSequence();
+			match(Switch);
 			setState(278);
-			match(CloseParen);
+			match(OpenParen);
 			setState(279);
+			expressionSequence();
+			setState(280);
+			match(CloseParen);
+			setState(281);
 			caseBlock();
 			}
 		}
@@ -1795,6 +1702,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class CaseBlockContext extends ParserRuleContext {
 		public TerminalNode OpenBrace() { return getToken(ECMAScriptParser.OpenBrace, 0); }
 		public TerminalNode CloseBrace() { return getToken(ECMAScriptParser.CloseBrace, 0); }
@@ -1819,11 +1727,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitCaseBlock(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitCaseBlock(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CaseBlockContext caseBlock() throws RecognitionException {
@@ -1833,31 +1736,31 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(281);
-			match(OpenBrace);
 			setState(283);
+			match(OpenBrace);
+			setState(285);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Case) {
 				{
-				setState(282);
+				setState(284);
 				caseClauses();
 				}
 			}
 
-			setState(289);
+			setState(291);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Default) {
 				{
-				setState(285);
-				defaultClause();
 				setState(287);
+				defaultClause();
+				setState(289);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Case) {
 					{
-					setState(286);
+					setState(288);
 					caseClauses();
 					}
 				}
@@ -1865,7 +1768,7 @@ public class ECMAScriptParser extends Parser {
 				}
 			}
 
-			setState(291);
+			setState(293);
 			match(CloseBrace);
 			}
 		}
@@ -1880,6 +1783,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class CaseClausesContext extends ParserRuleContext {
 		public List<CaseClauseContext> caseClause() {
 			return getRuleContexts(CaseClauseContext.class);
@@ -1899,11 +1803,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitCaseClauses(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitCaseClauses(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CaseClausesContext caseClauses() throws RecognitionException {
@@ -1913,17 +1812,17 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(294); 
+			setState(296); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(293);
+				setState(295);
 				caseClause();
 				}
 				}
-				setState(296); 
+				setState(298); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==Case );
@@ -1940,6 +1839,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class CaseClauseContext extends ParserRuleContext {
 		public TerminalNode Case() { return getToken(ECMAScriptParser.Case, 0); }
 		public ExpressionSequenceContext expressionSequence() {
@@ -1961,11 +1861,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitCaseClause(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitCaseClause(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CaseClauseContext caseClause() throws RecognitionException {
@@ -1974,18 +1869,18 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(298);
-			match(Case);
-			setState(299);
-			expressionSequence();
 			setState(300);
-			match(Colon);
+			match(Case);
+			setState(301);
+			expressionSequence();
 			setState(302);
+			match(Colon);
+			setState(304);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,22,_ctx) ) {
 			case 1:
 				{
-				setState(301);
+				setState(303);
 				statementList();
 				}
 				break;
@@ -2003,6 +1898,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class DefaultClauseContext extends ParserRuleContext {
 		public TerminalNode Default() { return getToken(ECMAScriptParser.Default, 0); }
 		public TerminalNode Colon() { return getToken(ECMAScriptParser.Colon, 0); }
@@ -2021,11 +1917,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitDefaultClause(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitDefaultClause(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final DefaultClauseContext defaultClause() throws RecognitionException {
@@ -2034,16 +1925,16 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(304);
+			setState(306);
 			match(Default);
-			setState(305);
-			match(Colon);
 			setState(307);
+			match(Colon);
+			setState(309);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,23,_ctx) ) {
 			case 1:
 				{
-				setState(306);
+				setState(308);
 				statementList();
 				}
 				break;
@@ -2061,10 +1952,9 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class LabelledStatementContext extends ParserRuleContext {
-		public IdentifierNonterminalContext identifierNonterminal() {
-			return getRuleContext(IdentifierNonterminalContext.class,0);
-		}
+		public TerminalNode Identifier() { return getToken(ECMAScriptParser.Identifier, 0); }
 		public TerminalNode Colon() { return getToken(ECMAScriptParser.Colon, 0); }
 		public StatementContext statement() {
 			return getRuleContext(StatementContext.class,0);
@@ -2081,11 +1971,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitLabelledStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitLabelledStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final LabelledStatementContext labelledStatement() throws RecognitionException {
@@ -2094,11 +1979,11 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(309);
-			identifierNonterminal();
-			setState(310);
-			match(Colon);
 			setState(311);
+			match(Identifier);
+			setState(312);
+			match(Colon);
+			setState(313);
 			statement();
 			}
 		}
@@ -2113,6 +1998,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ThrowStatementContext extends ParserRuleContext {
 		public TerminalNode Throw() { return getToken(ECMAScriptParser.Throw, 0); }
 		public ExpressionSequenceContext expressionSequence() {
@@ -2133,11 +2019,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitThrowStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitThrowStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ThrowStatementContext throwStatement() throws RecognitionException {
@@ -2146,11 +2027,13 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(313);
-			match(Throw);
-			setState(314);
-			expressionSequence();
 			setState(315);
+			match(Throw);
+			setState(316);
+			if (!(!here(LineTerminator))) throw new FailedPredicateException(this, "!here(LineTerminator)");
+			setState(317);
+			expressionSequence();
+			setState(318);
 			eos();
 			}
 		}
@@ -2165,6 +2048,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class TryStatementContext extends ParserRuleContext {
 		public TerminalNode Try() { return getToken(ECMAScriptParser.Try, 0); }
 		public BlockContext block() {
@@ -2188,52 +2072,47 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitTryStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitTryStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final TryStatementContext tryStatement() throws RecognitionException {
 		TryStatementContext _localctx = new TryStatementContext(_ctx, getState());
 		enterRule(_localctx, 50, RULE_tryStatement);
 		try {
-			setState(330);
+			setState(333);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,24,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(317);
+				setState(320);
 				match(Try);
-				setState(318);
+				setState(321);
 				block();
-				setState(319);
+				setState(322);
 				catchProduction();
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(321);
+				setState(324);
 				match(Try);
-				setState(322);
+				setState(325);
 				block();
-				setState(323);
+				setState(326);
 				finallyProduction();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(325);
-				match(Try);
-				setState(326);
-				block();
-				setState(327);
-				catchProduction();
 				setState(328);
+				match(Try);
+				setState(329);
+				block();
+				setState(330);
+				catchProduction();
+				setState(331);
 				finallyProduction();
 				}
 				break;
@@ -2250,12 +2129,11 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class CatchProductionContext extends ParserRuleContext {
 		public TerminalNode Catch() { return getToken(ECMAScriptParser.Catch, 0); }
 		public TerminalNode OpenParen() { return getToken(ECMAScriptParser.OpenParen, 0); }
-		public IdentifierNonterminalContext identifierNonterminal() {
-			return getRuleContext(IdentifierNonterminalContext.class,0);
-		}
+		public TerminalNode Identifier() { return getToken(ECMAScriptParser.Identifier, 0); }
 		public TerminalNode CloseParen() { return getToken(ECMAScriptParser.CloseParen, 0); }
 		public BlockContext block() {
 			return getRuleContext(BlockContext.class,0);
@@ -2272,11 +2150,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitCatchProduction(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitCatchProduction(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final CatchProductionContext catchProduction() throws RecognitionException {
@@ -2285,15 +2158,15 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(332);
-			match(Catch);
-			setState(333);
-			match(OpenParen);
-			setState(334);
-			identifierNonterminal();
 			setState(335);
-			match(CloseParen);
+			match(Catch);
 			setState(336);
+			match(OpenParen);
+			setState(337);
+			match(Identifier);
+			setState(338);
+			match(CloseParen);
+			setState(339);
 			block();
 			}
 		}
@@ -2308,6 +2181,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class FinallyProductionContext extends ParserRuleContext {
 		public TerminalNode Finally() { return getToken(ECMAScriptParser.Finally, 0); }
 		public BlockContext block() {
@@ -2325,11 +2199,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitFinallyProduction(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitFinallyProduction(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FinallyProductionContext finallyProduction() throws RecognitionException {
@@ -2338,9 +2207,9 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(338);
+			setState(341);
 			match(Finally);
-			setState(339);
+			setState(342);
 			block();
 			}
 		}
@@ -2355,6 +2224,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class DebuggerStatementContext extends ParserRuleContext {
 		public TerminalNode Debugger() { return getToken(ECMAScriptParser.Debugger, 0); }
 		public EosContext eos() {
@@ -2372,11 +2242,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitDebuggerStatement(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitDebuggerStatement(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final DebuggerStatementContext debuggerStatement() throws RecognitionException {
@@ -2385,9 +2250,9 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(341);
+			setState(344);
 			match(Debugger);
-			setState(342);
+			setState(345);
 			eos();
 			}
 		}
@@ -2402,11 +2267,10 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class FunctionDeclarationContext extends ParserRuleContext {
 		public TerminalNode Function() { return getToken(ECMAScriptParser.Function, 0); }
-		public IdentifierNonterminalContext identifierNonterminal() {
-			return getRuleContext(IdentifierNonterminalContext.class,0);
-		}
+		public TerminalNode Identifier() { return getToken(ECMAScriptParser.Identifier, 0); }
 		public TerminalNode OpenParen() { return getToken(ECMAScriptParser.OpenParen, 0); }
 		public TerminalNode CloseParen() { return getToken(ECMAScriptParser.CloseParen, 0); }
 		public TerminalNode OpenBrace() { return getToken(ECMAScriptParser.OpenBrace, 0); }
@@ -2429,11 +2293,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitFunctionDeclaration(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitFunctionDeclaration(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FunctionDeclarationContext functionDeclaration() throws RecognitionException {
@@ -2443,29 +2302,29 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(344);
+			setState(347);
 			match(Function);
-			setState(345);
-			identifierNonterminal();
-			setState(346);
-			match(OpenParen);
 			setState(348);
+			match(Identifier);
+			setState(349);
+			match(OpenParen);
+			setState(351);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Identifier) {
 				{
-				setState(347);
+				setState(350);
 				formalParameterList();
 				}
 			}
 
-			setState(350);
-			match(CloseParen);
-			setState(351);
-			match(OpenBrace);
-			setState(352);
-			functionBody();
 			setState(353);
+			match(CloseParen);
+			setState(354);
+			match(OpenBrace);
+			setState(355);
+			functionBody();
+			setState(356);
 			match(CloseBrace);
 			}
 		}
@@ -2480,12 +2339,11 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class FormalParameterListContext extends ParserRuleContext {
-		public List<IdentifierNonterminalContext> identifierNonterminal() {
-			return getRuleContexts(IdentifierNonterminalContext.class);
-		}
-		public IdentifierNonterminalContext identifierNonterminal(int i) {
-			return getRuleContext(IdentifierNonterminalContext.class,i);
+		public List<TerminalNode> Identifier() { return getTokens(ECMAScriptParser.Identifier); }
+		public TerminalNode Identifier(int i) {
+			return getToken(ECMAScriptParser.Identifier, i);
 		}
 		public List<TerminalNode> Comma() { return getTokens(ECMAScriptParser.Comma); }
 		public TerminalNode Comma(int i) {
@@ -2503,11 +2361,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitFormalParameterList(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitFormalParameterList(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FormalParameterListContext formalParameterList() throws RecognitionException {
@@ -2517,21 +2370,21 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(355);
-			identifierNonterminal();
-			setState(360);
+			setState(358);
+			match(Identifier);
+			setState(363);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==Comma) {
 				{
 				{
-				setState(356);
+				setState(359);
 				match(Comma);
-				setState(357);
-				identifierNonterminal();
+				setState(360);
+				match(Identifier);
 				}
 				}
-				setState(362);
+				setState(365);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -2548,6 +2401,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class FunctionBodyContext extends ParserRuleContext {
 		public SourceElementsContext sourceElements() {
 			return getRuleContext(SourceElementsContext.class,0);
@@ -2564,11 +2418,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitFunctionBody(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitFunctionBody(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FunctionBodyContext functionBody() throws RecognitionException {
@@ -2577,12 +2426,12 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(364);
+			setState(367);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,27,_ctx) ) {
 			case 1:
 				{
-				setState(363);
+				setState(366);
 				sourceElements();
 				}
 				break;
@@ -2600,6 +2449,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ArrayLiteralContext extends ParserRuleContext {
 		public TerminalNode OpenBracket() { return getToken(ECMAScriptParser.OpenBracket, 0); }
 		public TerminalNode CloseBracket() { return getToken(ECMAScriptParser.CloseBracket, 0); }
@@ -2622,11 +2472,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitArrayLiteral(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitArrayLiteral(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ArrayLiteralContext arrayLiteral() throws RecognitionException {
@@ -2636,39 +2481,39 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(366);
+			setState(369);
 			match(OpenBracket);
-			setState(368);
+			setState(371);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,28,_ctx) ) {
 			case 1:
 				{
-				setState(367);
-				elementList();
-				}
-				break;
-			}
-			setState(371);
-			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,29,_ctx) ) {
-			case 1:
-				{
 				setState(370);
-				match(Comma);
+				elementList();
 				}
 				break;
 			}
 			setState(374);
 			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,29,_ctx) ) {
+			case 1:
+				{
+				setState(373);
+				match(Comma);
+				}
+				break;
+			}
+			setState(377);
+			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Comma) {
 				{
-				setState(373);
+				setState(376);
 				elision();
 				}
 			}
 
-			setState(376);
+			setState(379);
 			match(CloseBracket);
 			}
 		}
@@ -2683,6 +2528,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ElementListContext extends ParserRuleContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -2712,11 +2558,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitElementList(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitElementList(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ElementListContext elementList() throws RecognitionException {
@@ -2727,43 +2568,43 @@ public class ECMAScriptParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(379);
+			setState(382);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			if (_la==Comma) {
 				{
-				setState(378);
+				setState(381);
 				elision();
 				}
 			}
 
-			setState(381);
+			setState(384);
 			singleExpression(0);
-			setState(389);
+			setState(392);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,33,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(382);
+					setState(385);
 					match(Comma);
-					setState(384);
+					setState(387);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 					if (_la==Comma) {
 						{
-						setState(383);
+						setState(386);
 						elision();
 						}
 					}
 
-					setState(386);
+					setState(389);
 					singleExpression(0);
 					}
 					} 
 				}
-				setState(391);
+				setState(394);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,33,_ctx);
 			}
@@ -2780,6 +2621,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ElisionContext extends ParserRuleContext {
 		public List<TerminalNode> Comma() { return getTokens(ECMAScriptParser.Comma); }
 		public TerminalNode Comma(int i) {
@@ -2797,11 +2639,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitElision(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitElision(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ElisionContext elision() throws RecognitionException {
@@ -2811,17 +2648,17 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(393); 
+			setState(396); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
 				{
-				setState(392);
+				setState(395);
 				match(Comma);
 				}
 				}
-				setState(395); 
+				setState(398); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			} while ( _la==Comma );
@@ -2838,6 +2675,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ObjectLiteralContext extends ParserRuleContext {
 		public TerminalNode OpenBrace() { return getToken(ECMAScriptParser.OpenBrace, 0); }
 		public TerminalNode CloseBrace() { return getToken(ECMAScriptParser.CloseBrace, 0); }
@@ -2857,11 +2695,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitObjectLiteral(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitObjectLiteral(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ObjectLiteralContext objectLiteral() throws RecognitionException {
@@ -2869,32 +2702,39 @@ public class ECMAScriptParser extends Parser {
 		enterRule(_localctx, 70, RULE_objectLiteral);
 		int _la;
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(397);
-			match(OpenBrace);
-			setState(399);
+			setState(409);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,35,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,36,_ctx) ) {
 			case 1:
+				enterOuterAlt(_localctx, 1);
 				{
-				setState(398);
-				propertyNameAndValueList();
+				setState(400);
+				match(OpenBrace);
+				setState(401);
+				match(CloseBrace);
 				}
 				break;
-			}
-			setState(402);
-			_errHandler.sync(this);
-			_la = _input.LA(1);
-			if (_la==Comma) {
+			case 2:
+				enterOuterAlt(_localctx, 2);
 				{
-				setState(401);
-				match(Comma);
+				setState(402);
+				match(OpenBrace);
+				setState(403);
+				propertyNameAndValueList();
+				setState(405);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				if (_la==Comma) {
+					{
+					setState(404);
+					match(Comma);
+					}
 				}
-			}
 
-			setState(404);
-			match(CloseBrace);
+				setState(407);
+				match(CloseBrace);
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -2908,6 +2748,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class PropertyNameAndValueListContext extends ParserRuleContext {
 		public List<PropertyAssignmentContext> propertyAssignment() {
 			return getRuleContexts(PropertyAssignmentContext.class);
@@ -2931,11 +2772,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitPropertyNameAndValueList(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitPropertyNameAndValueList(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final PropertyNameAndValueListContext propertyNameAndValueList() throws RecognitionException {
@@ -2945,23 +2781,23 @@ public class ECMAScriptParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(406);
-			propertyAssignment();
 			setState(411);
+			propertyAssignment();
+			setState(416);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,37,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(407);
+					setState(412);
 					match(Comma);
-					setState(408);
+					setState(413);
 					propertyAssignment();
 					}
 					} 
 				}
-				setState(413);
+				setState(418);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,37,_ctx);
 			}
@@ -2978,6 +2814,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class PropertyAssignmentContext extends ParserRuleContext {
 		public PropertyAssignmentContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -2989,6 +2826,7 @@ public class ECMAScriptParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class PropertyExpressionAssignmentContext extends PropertyAssignmentContext {
 		public PropertyNameContext propertyName() {
 			return getRuleContext(PropertyNameContext.class,0);
@@ -3006,12 +2844,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitPropertyExpressionAssignment(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitPropertyExpressionAssignment(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class PropertySetterContext extends PropertyAssignmentContext {
 		public SetterContext setter() {
 			return getRuleContext(SetterContext.class,0);
@@ -3035,12 +2869,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitPropertySetter(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitPropertySetter(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class PropertyGetterContext extends PropertyAssignmentContext {
 		public GetterContext getter() {
 			return getRuleContext(GetterContext.class,0);
@@ -3061,29 +2891,24 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitPropertyGetter(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitPropertyGetter(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final PropertyAssignmentContext propertyAssignment() throws RecognitionException {
 		PropertyAssignmentContext _localctx = new PropertyAssignmentContext(_ctx, getState());
 		enterRule(_localctx, 74, RULE_propertyAssignment);
 		try {
-			setState(433);
+			setState(438);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,38,_ctx) ) {
 			case 1:
 				_localctx = new PropertyExpressionAssignmentContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(414);
+				setState(419);
 				propertyName();
-				setState(415);
+				setState(420);
 				match(Colon);
-				setState(416);
+				setState(421);
 				singleExpression(0);
 				}
 				break;
@@ -3091,17 +2916,17 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new PropertyGetterContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(418);
-				getter();
-				setState(419);
-				match(OpenParen);
-				setState(420);
-				match(CloseParen);
-				setState(421);
-				match(OpenBrace);
-				setState(422);
-				functionBody();
 				setState(423);
+				getter();
+				setState(424);
+				match(OpenParen);
+				setState(425);
+				match(CloseParen);
+				setState(426);
+				match(OpenBrace);
+				setState(427);
+				functionBody();
+				setState(428);
 				match(CloseBrace);
 				}
 				break;
@@ -3109,19 +2934,19 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new PropertySetterContext(_localctx);
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(425);
-				setter();
-				setState(426);
-				match(OpenParen);
-				setState(427);
-				propertySetParameterList();
-				setState(428);
-				match(CloseParen);
-				setState(429);
-				match(OpenBrace);
 				setState(430);
-				functionBody();
+				setter();
 				setState(431);
+				match(OpenParen);
+				setState(432);
+				propertySetParameterList();
+				setState(433);
+				match(CloseParen);
+				setState(434);
+				match(OpenBrace);
+				setState(435);
+				functionBody();
+				setState(436);
 				match(CloseBrace);
 				}
 				break;
@@ -3138,6 +2963,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class PropertyNameContext extends ParserRuleContext {
 		public IdentifierNameContext identifierName() {
 			return getRuleContext(IdentifierNameContext.class,0);
@@ -3158,18 +2984,13 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitPropertyName(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitPropertyName(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final PropertyNameContext propertyName() throws RecognitionException {
 		PropertyNameContext _localctx = new PropertyNameContext(_ctx, getState());
 		enterRule(_localctx, 76, RULE_propertyName);
 		try {
-			setState(438);
+			setState(443);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case NullLiteral:
@@ -3219,14 +3040,14 @@ public class ECMAScriptParser extends Parser {
 			case Identifier:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(435);
+				setState(440);
 				identifierName();
 				}
 				break;
 			case StringLiteral:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(436);
+				setState(441);
 				match(StringLiteral);
 				}
 				break;
@@ -3235,7 +3056,7 @@ public class ECMAScriptParser extends Parser {
 			case OctalIntegerLiteral:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(437);
+				setState(442);
 				numericLiteral();
 				}
 				break;
@@ -3254,10 +3075,9 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class PropertySetParameterListContext extends ParserRuleContext {
-		public IdentifierNonterminalContext identifierNonterminal() {
-			return getRuleContext(IdentifierNonterminalContext.class,0);
-		}
+		public TerminalNode Identifier() { return getToken(ECMAScriptParser.Identifier, 0); }
 		public PropertySetParameterListContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -3270,11 +3090,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitPropertySetParameterList(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitPropertySetParameterList(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final PropertySetParameterListContext propertySetParameterList() throws RecognitionException {
@@ -3283,8 +3098,8 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(440);
-			identifierNonterminal();
+			setState(445);
+			match(Identifier);
 			}
 		}
 		catch (RecognitionException re) {
@@ -3298,6 +3113,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ArgumentsContext extends ParserRuleContext {
 		public TerminalNode OpenParen() { return getToken(ECMAScriptParser.OpenParen, 0); }
 		public TerminalNode CloseParen() { return getToken(ECMAScriptParser.CloseParen, 0); }
@@ -3316,11 +3132,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitArguments(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitArguments(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ArgumentsContext arguments() throws RecognitionException {
@@ -3330,19 +3141,19 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(442);
+			setState(447);
 			match(OpenParen);
-			setState(444);
+			setState(449);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << OpenBracket) | (1L << OpenParen) | (1L << OpenBrace) | (1L << PlusPlus) | (1L << MinusMinus) | (1L << Plus) | (1L << Minus) | (1L << BitNot) | (1L << Not) | (1L << NullLiteral) | (1L << BooleanLiteral) | (1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral) | (1L << Typeof) | (1L << New))) != 0) || ((((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & ((1L << (Void - 67)) | (1L << (Function - 67)) | (1L << (This - 67)) | (1L << (Delete - 67)) | (1L << (Identifier - 67)) | (1L << (StringLiteral - 67)))) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & 5257952564957118634L) != 0) || ((((_la - 67)) & ~0x3f) == 0 && ((1L << (_la - 67)) & 6442455233L) != 0)) {
 				{
-				setState(443);
+				setState(448);
 				argumentList();
 				}
 			}
 
-			setState(446);
+			setState(451);
 			match(CloseParen);
 			}
 		}
@@ -3357,6 +3168,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ArgumentListContext extends ParserRuleContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -3380,11 +3192,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitArgumentList(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitArgumentList(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ArgumentListContext argumentList() throws RecognitionException {
@@ -3394,21 +3201,21 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(448);
-			singleExpression(0);
 			setState(453);
+			singleExpression(0);
+			setState(458);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==Comma) {
 				{
 				{
-				setState(449);
+				setState(454);
 				match(Comma);
-				setState(450);
+				setState(455);
 				singleExpression(0);
 				}
 				}
-				setState(455);
+				setState(460);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -3425,6 +3232,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ExpressionSequenceContext extends ParserRuleContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -3448,11 +3256,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitExpressionSequence(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitExpressionSequence(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ExpressionSequenceContext expressionSequence() throws RecognitionException {
@@ -3462,23 +3265,23 @@ public class ECMAScriptParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(456);
-			singleExpression(0);
 			setState(461);
+			singleExpression(0);
+			setState(466);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,42,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(457);
+					setState(462);
 					match(Comma);
-					setState(458);
+					setState(463);
 					singleExpression(0);
 					}
 					} 
 				}
-				setState(463);
+				setState(468);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,42,_ctx);
 			}
@@ -3495,6 +3298,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class SingleExpressionContext extends ParserRuleContext {
 		public SingleExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -3506,6 +3310,7 @@ public class ECMAScriptParser extends Parser {
 			super.copyFrom(ctx);
 		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class TernaryExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -3524,12 +3329,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitTernaryExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitTernaryExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class LogicalAndExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -3547,12 +3348,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitLogicalAndExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitLogicalAndExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class PreIncrementExpressionContext extends SingleExpressionContext {
 		public TerminalNode PlusPlus() { return getToken(ECMAScriptParser.PlusPlus, 0); }
 		public SingleExpressionContext singleExpression() {
@@ -3567,12 +3364,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitPreIncrementExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitPreIncrementExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class ObjectLiteralExpressionContext extends SingleExpressionContext {
 		public ObjectLiteralContext objectLiteral() {
 			return getRuleContext(ObjectLiteralContext.class,0);
@@ -3586,12 +3379,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitObjectLiteralExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitObjectLiteralExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class InExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -3609,12 +3398,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitInExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitInExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class LogicalOrExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -3632,12 +3417,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitLogicalOrExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitLogicalOrExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class NotExpressionContext extends SingleExpressionContext {
 		public TerminalNode Not() { return getToken(ECMAScriptParser.Not, 0); }
 		public SingleExpressionContext singleExpression() {
@@ -3652,12 +3433,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitNotExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitNotExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class PreDecreaseExpressionContext extends SingleExpressionContext {
 		public TerminalNode MinusMinus() { return getToken(ECMAScriptParser.MinusMinus, 0); }
 		public SingleExpressionContext singleExpression() {
@@ -3672,12 +3449,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitPreDecreaseExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitPreDecreaseExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class ArgumentsExpressionContext extends SingleExpressionContext {
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
@@ -3694,12 +3467,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitArgumentsExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitArgumentsExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class ThisExpressionContext extends SingleExpressionContext {
 		public TerminalNode This() { return getToken(ECMAScriptParser.This, 0); }
 		public ThisExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
@@ -3711,12 +3480,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitThisExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitThisExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class FunctionExpressionContext extends SingleExpressionContext {
 		public TerminalNode Function() { return getToken(ECMAScriptParser.Function, 0); }
 		public TerminalNode OpenParen() { return getToken(ECMAScriptParser.OpenParen, 0); }
@@ -3739,12 +3504,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitFunctionExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitFunctionExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class UnaryMinusExpressionContext extends SingleExpressionContext {
 		public TerminalNode Minus() { return getToken(ECMAScriptParser.Minus, 0); }
 		public SingleExpressionContext singleExpression() {
@@ -3759,12 +3520,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitUnaryMinusExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitUnaryMinusExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class AssignmentExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -3782,12 +3539,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitAssignmentExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitAssignmentExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class PostDecreaseExpressionContext extends SingleExpressionContext {
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
@@ -3802,12 +3555,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitPostDecreaseExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitPostDecreaseExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class TypeofExpressionContext extends SingleExpressionContext {
 		public TerminalNode Typeof() { return getToken(ECMAScriptParser.Typeof, 0); }
 		public SingleExpressionContext singleExpression() {
@@ -3822,12 +3571,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitTypeofExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitTypeofExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class InstanceofExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -3845,12 +3590,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitInstanceofExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitInstanceofExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class UnaryPlusExpressionContext extends SingleExpressionContext {
 		public TerminalNode Plus() { return getToken(ECMAScriptParser.Plus, 0); }
 		public SingleExpressionContext singleExpression() {
@@ -3865,12 +3606,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitUnaryPlusExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitUnaryPlusExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class DeleteExpressionContext extends SingleExpressionContext {
 		public TerminalNode Delete() { return getToken(ECMAScriptParser.Delete, 0); }
 		public SingleExpressionContext singleExpression() {
@@ -3885,12 +3622,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitDeleteExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitDeleteExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class EqualityExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -3911,12 +3644,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitEqualityExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitEqualityExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class BitXOrExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -3934,12 +3663,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitBitXOrExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitBitXOrExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class MultiplicativeExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -3959,12 +3684,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitMultiplicativeExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitMultiplicativeExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class BitShiftExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -3984,12 +3705,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitBitShiftExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitBitShiftExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class ParenthesizedExpressionContext extends SingleExpressionContext {
 		public TerminalNode OpenParen() { return getToken(ECMAScriptParser.OpenParen, 0); }
 		public ExpressionSequenceContext expressionSequence() {
@@ -4005,12 +3722,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitParenthesizedExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitParenthesizedExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class AdditiveExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -4029,12 +3742,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitAdditiveExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitAdditiveExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class RelationalExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -4055,12 +3764,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitRelationalExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitRelationalExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class PostIncrementExpressionContext extends SingleExpressionContext {
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
@@ -4075,12 +3780,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitPostIncrementExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitPostIncrementExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class BitNotExpressionContext extends SingleExpressionContext {
 		public TerminalNode BitNot() { return getToken(ECMAScriptParser.BitNot, 0); }
 		public SingleExpressionContext singleExpression() {
@@ -4095,12 +3796,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitBitNotExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitBitNotExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class NewExpressionContext extends SingleExpressionContext {
 		public TerminalNode New() { return getToken(ECMAScriptParser.New, 0); }
 		public SingleExpressionContext singleExpression() {
@@ -4118,12 +3815,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitNewExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitNewExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class LiteralExpressionContext extends SingleExpressionContext {
 		public LiteralContext literal() {
 			return getRuleContext(LiteralContext.class,0);
@@ -4137,12 +3830,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitLiteralExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitLiteralExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class ArrayLiteralExpressionContext extends SingleExpressionContext {
 		public ArrayLiteralContext arrayLiteral() {
 			return getRuleContext(ArrayLiteralContext.class,0);
@@ -4156,12 +3845,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitArrayLiteralExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitArrayLiteralExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class MemberDotExpressionContext extends SingleExpressionContext {
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
@@ -4179,12 +3864,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitMemberDotExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitMemberDotExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class MemberIndexExpressionContext extends SingleExpressionContext {
 		public SingleExpressionContext singleExpression() {
 			return getRuleContext(SingleExpressionContext.class,0);
@@ -4203,12 +3884,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitMemberIndexExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitMemberIndexExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class IdentifierExpressionContext extends SingleExpressionContext {
 		public TerminalNode Identifier() { return getToken(ECMAScriptParser.Identifier, 0); }
 		public IdentifierExpressionContext(SingleExpressionContext ctx) { copyFrom(ctx); }
@@ -4220,12 +3897,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitIdentifierExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitIdentifierExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class BitAndExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -4243,12 +3916,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitBitAndExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitBitAndExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class BitOrExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -4266,12 +3935,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitBitOrExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitBitOrExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class AssignmentOperatorExpressionContext extends SingleExpressionContext {
 		public List<SingleExpressionContext> singleExpression() {
 			return getRuleContexts(SingleExpressionContext.class);
@@ -4291,12 +3956,8 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitAssignmentOperatorExpression(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitAssignmentOperatorExpression(this);
-			else return visitor.visitChildren(this);
-		}
 	}
+	@SuppressWarnings("CheckReturnValue")
 	public static class VoidExpressionContext extends SingleExpressionContext {
 		public TerminalNode Void() { return getToken(ECMAScriptParser.Void, 0); }
 		public SingleExpressionContext singleExpression() {
@@ -4310,11 +3971,6 @@ public class ECMAScriptParser extends Parser {
 		@Override
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitVoidExpression(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitVoidExpression(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -4334,7 +3990,7 @@ public class ECMAScriptParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(510);
+			setState(515);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Function:
@@ -4343,37 +3999,37 @@ public class ECMAScriptParser extends Parser {
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				setState(465);
+				setState(470);
 				match(Function);
-				setState(467);
+				setState(472);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Identifier) {
 					{
-					setState(466);
+					setState(471);
 					match(Identifier);
 					}
 				}
 
-				setState(469);
+				setState(474);
 				match(OpenParen);
-				setState(471);
+				setState(476);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				if (_la==Identifier) {
 					{
-					setState(470);
+					setState(475);
 					formalParameterList();
 					}
 				}
 
-				setState(473);
+				setState(478);
 				match(CloseParen);
-				setState(474);
+				setState(479);
 				match(OpenBrace);
-				setState(475);
+				setState(480);
 				functionBody();
-				setState(476);
+				setState(481);
 				match(CloseBrace);
 				}
 				break;
@@ -4382,16 +4038,16 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new NewExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(478);
+				setState(483);
 				match(New);
-				setState(479);
+				setState(484);
 				singleExpression(0);
-				setState(481);
+				setState(486);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,45,_ctx) ) {
 				case 1:
 					{
-					setState(480);
+					setState(485);
 					arguments();
 					}
 					break;
@@ -4403,9 +4059,9 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new DeleteExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(483);
+				setState(488);
 				match(Delete);
-				setState(484);
+				setState(489);
 				singleExpression(30);
 				}
 				break;
@@ -4414,9 +4070,9 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new VoidExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(485);
+				setState(490);
 				match(Void);
-				setState(486);
+				setState(491);
 				singleExpression(29);
 				}
 				break;
@@ -4425,9 +4081,9 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new TypeofExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(487);
+				setState(492);
 				match(Typeof);
-				setState(488);
+				setState(493);
 				singleExpression(28);
 				}
 				break;
@@ -4436,9 +4092,9 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new PreIncrementExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(489);
+				setState(494);
 				match(PlusPlus);
-				setState(490);
+				setState(495);
 				singleExpression(27);
 				}
 				break;
@@ -4447,9 +4103,9 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new PreDecreaseExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(491);
+				setState(496);
 				match(MinusMinus);
-				setState(492);
+				setState(497);
 				singleExpression(26);
 				}
 				break;
@@ -4458,9 +4114,9 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new UnaryPlusExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(493);
+				setState(498);
 				match(Plus);
-				setState(494);
+				setState(499);
 				singleExpression(25);
 				}
 				break;
@@ -4469,9 +4125,9 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new UnaryMinusExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(495);
+				setState(500);
 				match(Minus);
-				setState(496);
+				setState(501);
 				singleExpression(24);
 				}
 				break;
@@ -4480,9 +4136,9 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new BitNotExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(497);
+				setState(502);
 				match(BitNot);
-				setState(498);
+				setState(503);
 				singleExpression(23);
 				}
 				break;
@@ -4491,9 +4147,9 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new NotExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(499);
+				setState(504);
 				match(Not);
-				setState(500);
+				setState(505);
 				singleExpression(22);
 				}
 				break;
@@ -4502,7 +4158,7 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new ThisExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(501);
+				setState(506);
 				match(This);
 				}
 				break;
@@ -4511,7 +4167,7 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new IdentifierExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(502);
+				setState(507);
 				match(Identifier);
 				}
 				break;
@@ -4526,7 +4182,7 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new LiteralExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(503);
+				setState(508);
 				literal();
 				}
 				break;
@@ -4535,7 +4191,7 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new ArrayLiteralExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(504);
+				setState(509);
 				arrayLiteral();
 				}
 				break;
@@ -4544,7 +4200,7 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new ObjectLiteralExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(505);
+				setState(510);
 				objectLiteral();
 				}
 				break;
@@ -4553,11 +4209,11 @@ public class ECMAScriptParser extends Parser {
 				_localctx = new ParenthesizedExpressionContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(506);
+				setState(511);
 				match(OpenParen);
-				setState(507);
+				setState(512);
 				expressionSequence();
-				setState(508);
+				setState(513);
 				match(CloseParen);
 				}
 				break;
@@ -4565,7 +4221,7 @@ public class ECMAScriptParser extends Parser {
 				throw new NoViableAltException(this);
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(579);
+			setState(584);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,48,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -4573,18 +4229,18 @@ public class ECMAScriptParser extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(577);
+					setState(582);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,47,_ctx) ) {
 					case 1:
 						{
 						_localctx = new MultiplicativeExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(512);
+						setState(517);
 						if (!(precpred(_ctx, 21))) throw new FailedPredicateException(this, "precpred(_ctx, 21)");
-						setState(513);
+						setState(518);
 						_la = _input.LA(1);
-						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Multiply) | (1L << Divide) | (1L << Modulus))) != 0)) ) {
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 14680064L) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
 						else {
@@ -4592,7 +4248,7 @@ public class ECMAScriptParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(514);
+						setState(519);
 						singleExpression(22);
 						}
 						break;
@@ -4600,9 +4256,9 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new AdditiveExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(515);
+						setState(520);
 						if (!(precpred(_ctx, 20))) throw new FailedPredicateException(this, "precpred(_ctx, 20)");
-						setState(516);
+						setState(521);
 						_la = _input.LA(1);
 						if ( !(_la==Plus || _la==Minus) ) {
 						_errHandler.recoverInline(this);
@@ -4612,7 +4268,7 @@ public class ECMAScriptParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(517);
+						setState(522);
 						singleExpression(21);
 						}
 						break;
@@ -4620,11 +4276,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new BitShiftExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(518);
+						setState(523);
 						if (!(precpred(_ctx, 19))) throw new FailedPredicateException(this, "precpred(_ctx, 19)");
-						setState(519);
+						setState(524);
 						_la = _input.LA(1);
-						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RightShiftArithmetic) | (1L << LeftShiftArithmetic) | (1L << RightShiftLogical))) != 0)) ) {
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 117440512L) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
 						else {
@@ -4632,7 +4288,7 @@ public class ECMAScriptParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(520);
+						setState(525);
 						singleExpression(20);
 						}
 						break;
@@ -4640,11 +4296,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new RelationalExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(521);
+						setState(526);
 						if (!(precpred(_ctx, 18))) throw new FailedPredicateException(this, "precpred(_ctx, 18)");
-						setState(522);
+						setState(527);
 						_la = _input.LA(1);
-						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << LessThan) | (1L << MoreThan) | (1L << LessThanEquals) | (1L << GreaterThanEquals))) != 0)) ) {
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 2013265920L) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
 						else {
@@ -4652,7 +4308,7 @@ public class ECMAScriptParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(523);
+						setState(528);
 						singleExpression(19);
 						}
 						break;
@@ -4660,11 +4316,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new InstanceofExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(524);
+						setState(529);
 						if (!(precpred(_ctx, 17))) throw new FailedPredicateException(this, "precpred(_ctx, 17)");
-						setState(525);
+						setState(530);
 						match(Instanceof);
-						setState(526);
+						setState(531);
 						singleExpression(18);
 						}
 						break;
@@ -4672,11 +4328,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new InExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(527);
+						setState(532);
 						if (!(precpred(_ctx, 16))) throw new FailedPredicateException(this, "precpred(_ctx, 16)");
-						setState(528);
+						setState(533);
 						match(In);
-						setState(529);
+						setState(534);
 						singleExpression(17);
 						}
 						break;
@@ -4684,11 +4340,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new EqualityExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(530);
+						setState(535);
 						if (!(precpred(_ctx, 15))) throw new FailedPredicateException(this, "precpred(_ctx, 15)");
-						setState(531);
+						setState(536);
 						_la = _input.LA(1);
-						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << Equals) | (1L << NotEquals) | (1L << IdentityEquals) | (1L << IdentityNotEquals))) != 0)) ) {
+						if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 32212254720L) != 0)) ) {
 						_errHandler.recoverInline(this);
 						}
 						else {
@@ -4696,7 +4352,7 @@ public class ECMAScriptParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(532);
+						setState(537);
 						singleExpression(16);
 						}
 						break;
@@ -4704,11 +4360,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new BitAndExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(533);
+						setState(538);
 						if (!(precpred(_ctx, 14))) throw new FailedPredicateException(this, "precpred(_ctx, 14)");
-						setState(534);
+						setState(539);
 						match(BitAnd);
-						setState(535);
+						setState(540);
 						singleExpression(15);
 						}
 						break;
@@ -4716,11 +4372,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new BitXOrExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(536);
+						setState(541);
 						if (!(precpred(_ctx, 13))) throw new FailedPredicateException(this, "precpred(_ctx, 13)");
-						setState(537);
+						setState(542);
 						match(BitXOr);
-						setState(538);
+						setState(543);
 						singleExpression(14);
 						}
 						break;
@@ -4728,11 +4384,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new BitOrExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(539);
+						setState(544);
 						if (!(precpred(_ctx, 12))) throw new FailedPredicateException(this, "precpred(_ctx, 12)");
-						setState(540);
+						setState(545);
 						match(BitOr);
-						setState(541);
+						setState(546);
 						singleExpression(13);
 						}
 						break;
@@ -4740,11 +4396,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new LogicalAndExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(542);
+						setState(547);
 						if (!(precpred(_ctx, 11))) throw new FailedPredicateException(this, "precpred(_ctx, 11)");
-						setState(543);
+						setState(548);
 						match(And);
-						setState(544);
+						setState(549);
 						singleExpression(12);
 						}
 						break;
@@ -4752,11 +4408,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new LogicalOrExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(545);
+						setState(550);
 						if (!(precpred(_ctx, 10))) throw new FailedPredicateException(this, "precpred(_ctx, 10)");
-						setState(546);
+						setState(551);
 						match(Or);
-						setState(547);
+						setState(552);
 						singleExpression(11);
 						}
 						break;
@@ -4764,15 +4420,15 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new TernaryExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(548);
+						setState(553);
 						if (!(precpred(_ctx, 9))) throw new FailedPredicateException(this, "precpred(_ctx, 9)");
-						setState(549);
+						setState(554);
 						match(QuestionMark);
-						setState(550);
+						setState(555);
 						singleExpression(0);
-						setState(551);
+						setState(556);
 						match(Colon);
-						setState(552);
+						setState(557);
 						singleExpression(10);
 						}
 						break;
@@ -4780,11 +4436,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new AssignmentExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(554);
+						setState(559);
 						if (!(precpred(_ctx, 8))) throw new FailedPredicateException(this, "precpred(_ctx, 8)");
-						setState(555);
+						setState(560);
 						match(Assign);
-						setState(556);
+						setState(561);
 						singleExpression(9);
 						}
 						break;
@@ -4792,11 +4448,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new AssignmentOperatorExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(557);
+						setState(562);
 						if (!(precpred(_ctx, 7))) throw new FailedPredicateException(this, "precpred(_ctx, 7)");
-						setState(558);
+						setState(563);
 						assignmentOperator();
-						setState(559);
+						setState(564);
 						singleExpression(8);
 						}
 						break;
@@ -4804,13 +4460,13 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new MemberIndexExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(561);
+						setState(566);
 						if (!(precpred(_ctx, 36))) throw new FailedPredicateException(this, "precpred(_ctx, 36)");
-						setState(562);
+						setState(567);
 						match(OpenBracket);
-						setState(563);
+						setState(568);
 						expressionSequence();
-						setState(564);
+						setState(569);
 						match(CloseBracket);
 						}
 						break;
@@ -4818,11 +4474,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new MemberDotExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(566);
+						setState(571);
 						if (!(precpred(_ctx, 35))) throw new FailedPredicateException(this, "precpred(_ctx, 35)");
-						setState(567);
+						setState(572);
 						match(Dot);
-						setState(568);
+						setState(573);
 						identifierName();
 						}
 						break;
@@ -4830,9 +4486,9 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new ArgumentsExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(569);
+						setState(574);
 						if (!(precpred(_ctx, 34))) throw new FailedPredicateException(this, "precpred(_ctx, 34)");
-						setState(570);
+						setState(575);
 						arguments();
 						}
 						break;
@@ -4840,11 +4496,11 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new PostIncrementExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(571);
+						setState(576);
 						if (!(precpred(_ctx, 32))) throw new FailedPredicateException(this, "precpred(_ctx, 32)");
-						setState(572);
+						setState(577);
 						if (!(!here(LineTerminator))) throw new FailedPredicateException(this, "!here(LineTerminator)");
-						setState(573);
+						setState(578);
 						match(PlusPlus);
 						}
 						break;
@@ -4852,18 +4508,18 @@ public class ECMAScriptParser extends Parser {
 						{
 						_localctx = new PostDecreaseExpressionContext(new SingleExpressionContext(_parentctx, _parentState));
 						pushNewRecursionContext(_localctx, _startState, RULE_singleExpression);
-						setState(574);
+						setState(579);
 						if (!(precpred(_ctx, 31))) throw new FailedPredicateException(this, "precpred(_ctx, 31)");
-						setState(575);
+						setState(580);
 						if (!(!here(LineTerminator))) throw new FailedPredicateException(this, "!here(LineTerminator)");
-						setState(576);
+						setState(581);
 						match(MinusMinus);
 						}
 						break;
 					}
 					} 
 				}
-				setState(581);
+				setState(586);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,48,_ctx);
 			}
@@ -4880,6 +4536,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class AssignmentOperatorContext extends ParserRuleContext {
 		public TerminalNode MultiplyAssign() { return getToken(ECMAScriptParser.MultiplyAssign, 0); }
 		public TerminalNode DivideAssign() { return getToken(ECMAScriptParser.DivideAssign, 0); }
@@ -4904,11 +4561,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitAssignmentOperator(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitAssignmentOperator(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final AssignmentOperatorContext assignmentOperator() throws RecognitionException {
@@ -4918,9 +4570,9 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(582);
+			setState(587);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << MultiplyAssign) | (1L << DivideAssign) | (1L << ModulusAssign) | (1L << PlusAssign) | (1L << MinusAssign) | (1L << LeftShiftArithmeticAssign) | (1L << RightShiftArithmeticAssign) | (1L << RightShiftLogicalAssign) | (1L << BitAndAssign) | (1L << BitXorAssign) | (1L << BitOrAssign))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 2250700302057472L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -4941,6 +4593,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class LiteralContext extends ParserRuleContext {
 		public TerminalNode NullLiteral() { return getToken(ECMAScriptParser.NullLiteral, 0); }
 		public TerminalNode BooleanLiteral() { return getToken(ECMAScriptParser.BooleanLiteral, 0); }
@@ -4961,11 +4614,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitLiteral(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitLiteral(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final LiteralContext literal() throws RecognitionException {
@@ -4973,7 +4621,7 @@ public class ECMAScriptParser extends Parser {
 		enterRule(_localctx, 90, RULE_literal);
 		int _la;
 		try {
-			setState(586);
+			setState(591);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case RegularExpressionLiteral:
@@ -4982,9 +4630,9 @@ public class ECMAScriptParser extends Parser {
 			case StringLiteral:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(584);
+				setState(589);
 				_la = _input.LA(1);
-				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << RegularExpressionLiteral) | (1L << NullLiteral) | (1L << BooleanLiteral))) != 0) || _la==StringLiteral) ) {
+				if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 6755399441055746L) != 0) || _la==StringLiteral) ) {
 				_errHandler.recoverInline(this);
 				}
 				else {
@@ -4999,7 +4647,7 @@ public class ECMAScriptParser extends Parser {
 			case OctalIntegerLiteral:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(585);
+				setState(590);
 				numericLiteral();
 				}
 				break;
@@ -5018,6 +4666,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class NumericLiteralContext extends ParserRuleContext {
 		public TerminalNode DecimalLiteral() { return getToken(ECMAScriptParser.DecimalLiteral, 0); }
 		public TerminalNode HexIntegerLiteral() { return getToken(ECMAScriptParser.HexIntegerLiteral, 0); }
@@ -5034,11 +4683,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitNumericLiteral(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitNumericLiteral(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final NumericLiteralContext numericLiteral() throws RecognitionException {
@@ -5048,9 +4692,9 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(588);
+			setState(593);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << DecimalLiteral) | (1L << HexIntegerLiteral) | (1L << OctalIntegerLiteral))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & 63050394783186944L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -5071,6 +4715,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class IdentifierNameContext extends ParserRuleContext {
 		public TerminalNode Identifier() { return getToken(ECMAScriptParser.Identifier, 0); }
 		public ReservedWordContext reservedWord() {
@@ -5088,24 +4733,19 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitIdentifierName(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitIdentifierName(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final IdentifierNameContext identifierName() throws RecognitionException {
 		IdentifierNameContext _localctx = new IdentifierNameContext(_ctx, getState());
 		enterRule(_localctx, 94, RULE_identifierName);
 		try {
-			setState(592);
+			setState(597);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Identifier:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(590);
+				setState(595);
 				match(Identifier);
 				}
 				break;
@@ -5155,7 +4795,7 @@ public class ECMAScriptParser extends Parser {
 			case Yield:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(591);
+				setState(596);
 				reservedWord();
 				}
 				break;
@@ -5174,6 +4814,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class ReservedWordContext extends ParserRuleContext {
 		public KeywordContext keyword() {
 			return getRuleContext(KeywordContext.class,0);
@@ -5195,11 +4836,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitReservedWord(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitReservedWord(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final ReservedWordContext reservedWord() throws RecognitionException {
@@ -5207,7 +4843,7 @@ public class ECMAScriptParser extends Parser {
 		enterRule(_localctx, 96, RULE_reservedWord);
 		int _la;
 		try {
-			setState(597);
+			setState(602);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case Break:
@@ -5238,7 +4874,7 @@ public class ECMAScriptParser extends Parser {
 			case Try:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(594);
+				setState(599);
 				keyword();
 				}
 				break;
@@ -5260,7 +4896,7 @@ public class ECMAScriptParser extends Parser {
 			case Yield:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(595);
+				setState(600);
 				futureReservedWord();
 				}
 				break;
@@ -5268,7 +4904,7 @@ public class ECMAScriptParser extends Parser {
 			case BooleanLiteral:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(596);
+				setState(601);
 				_la = _input.LA(1);
 				if ( !(_la==NullLiteral || _la==BooleanLiteral) ) {
 				_errHandler.recoverInline(this);
@@ -5295,6 +4931,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class KeywordContext extends ParserRuleContext {
 		public TerminalNode Break() { return getToken(ECMAScriptParser.Break, 0); }
 		public TerminalNode Do() { return getToken(ECMAScriptParser.Do, 0); }
@@ -5334,11 +4971,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitKeyword(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitKeyword(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final KeywordContext keyword() throws RecognitionException {
@@ -5348,9 +4980,9 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(599);
+			setState(604);
 			_la = _input.LA(1);
-			if ( !(((((_la - 56)) & ~0x3f) == 0 && ((1L << (_la - 56)) & ((1L << (Break - 56)) | (1L << (Do - 56)) | (1L << (Instanceof - 56)) | (1L << (Typeof - 56)) | (1L << (Case - 56)) | (1L << (Else - 56)) | (1L << (New - 56)) | (1L << (Var - 56)) | (1L << (Catch - 56)) | (1L << (Finally - 56)) | (1L << (Return - 56)) | (1L << (Void - 56)) | (1L << (Continue - 56)) | (1L << (For - 56)) | (1L << (Switch - 56)) | (1L << (While - 56)) | (1L << (Debugger - 56)) | (1L << (Function - 56)) | (1L << (This - 56)) | (1L << (With - 56)) | (1L << (Default - 56)) | (1L << (If - 56)) | (1L << (Throw - 56)) | (1L << (Delete - 56)) | (1L << (In - 56)) | (1L << (Try - 56)))) != 0)) ) {
+			if ( !(((((_la - 56)) & ~0x3f) == 0 && ((1L << (_la - 56)) & 67108863L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -5371,6 +5003,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class FutureReservedWordContext extends ParserRuleContext {
 		public TerminalNode Class() { return getToken(ECMAScriptParser.Class, 0); }
 		public TerminalNode Enum() { return getToken(ECMAScriptParser.Enum, 0); }
@@ -5400,11 +5033,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitFutureReservedWord(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitFutureReservedWord(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final FutureReservedWordContext futureReservedWord() throws RecognitionException {
@@ -5414,9 +5042,9 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(601);
+			setState(606);
 			_la = _input.LA(1);
-			if ( !(((((_la - 82)) & ~0x3f) == 0 && ((1L << (_la - 82)) & ((1L << (Class - 82)) | (1L << (Enum - 82)) | (1L << (Extends - 82)) | (1L << (Super - 82)) | (1L << (Const - 82)) | (1L << (Export - 82)) | (1L << (Import - 82)) | (1L << (Implements - 82)) | (1L << (Let - 82)) | (1L << (Private - 82)) | (1L << (Public - 82)) | (1L << (Interface - 82)) | (1L << (Package - 82)) | (1L << (Protected - 82)) | (1L << (Static - 82)) | (1L << (Yield - 82)))) != 0)) ) {
+			if ( !(((((_la - 82)) & ~0x3f) == 0 && ((1L << (_la - 82)) & 65535L) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -5437,10 +5065,9 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class GetterContext extends ParserRuleContext {
-		public IdentifierNonterminalContext identifierNonterminal() {
-			return getRuleContext(IdentifierNonterminalContext.class,0);
-		}
+		public TerminalNode Identifier() { return getToken(ECMAScriptParser.Identifier, 0); }
 		public PropertyNameContext propertyName() {
 			return getRuleContext(PropertyNameContext.class,0);
 		}
@@ -5456,11 +5083,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitGetter(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitGetter(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final GetterContext getter() throws RecognitionException {
@@ -5469,11 +5091,11 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(603);
+			setState(608);
 			if (!(_input.LT(1).getText().equals("get"))) throw new FailedPredicateException(this, "_input.LT(1).getText().equals(\"get\")");
-			setState(604);
-			identifierNonterminal();
-			setState(605);
+			setState(609);
+			match(Identifier);
+			setState(610);
 			propertyName();
 			}
 		}
@@ -5488,10 +5110,9 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class SetterContext extends ParserRuleContext {
-		public IdentifierNonterminalContext identifierNonterminal() {
-			return getRuleContext(IdentifierNonterminalContext.class,0);
-		}
+		public TerminalNode Identifier() { return getToken(ECMAScriptParser.Identifier, 0); }
 		public PropertyNameContext propertyName() {
 			return getRuleContext(PropertyNameContext.class,0);
 		}
@@ -5507,11 +5128,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitSetter(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitSetter(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final SetterContext setter() throws RecognitionException {
@@ -5520,11 +5136,11 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(607);
+			setState(612);
 			if (!(_input.LT(1).getText().equals("set"))) throw new FailedPredicateException(this, "_input.LT(1).getText().equals(\"set\")");
-			setState(608);
-			identifierNonterminal();
-			setState(609);
+			setState(613);
+			match(Identifier);
+			setState(614);
 			propertyName();
 			}
 		}
@@ -5539,6 +5155,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class EosContext extends ParserRuleContext {
 		public TerminalNode SemiColon() { return getToken(ECMAScriptParser.SemiColon, 0); }
 		public TerminalNode EOF() { return getToken(ECMAScriptParser.EOF, 0); }
@@ -5554,45 +5171,40 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitEos(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitEos(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final EosContext eos() throws RecognitionException {
 		EosContext _localctx = new EosContext(_ctx, getState());
 		enterRule(_localctx, 106, RULE_eos);
 		try {
-			setState(615);
+			setState(620);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,52,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(611);
+				setState(616);
 				match(SemiColon);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(612);
+				setState(617);
 				match(EOF);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(613);
+				setState(618);
 				if (!(lineTerminatorAhead())) throw new FailedPredicateException(this, "lineTerminatorAhead()");
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(614);
+				setState(619);
 				if (!(_input.LT(1).getType() == CloseBrace)) throw new FailedPredicateException(this, "_input.LT(1).getType() == CloseBrace");
 				}
 				break;
@@ -5609,6 +5221,7 @@ public class ECMAScriptParser extends Parser {
 		return _localctx;
 	}
 
+	@SuppressWarnings("CheckReturnValue")
 	public static class EofContext extends ParserRuleContext {
 		public TerminalNode EOF() { return getToken(ECMAScriptParser.EOF, 0); }
 		public EofContext(ParserRuleContext parent, int invokingState) {
@@ -5623,11 +5236,6 @@ public class ECMAScriptParser extends Parser {
 		public void exitRule(ParseTreeListener listener) {
 			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitEof(this);
 		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitEof(this);
-			else return visitor.visitChildren(this);
-		}
 	}
 
 	public final EofContext eof() throws RecognitionException {
@@ -5636,50 +5244,8 @@ public class ECMAScriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(617);
+			setState(622);
 			match(EOF);
-			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class IdentifierNonterminalContext extends ParserRuleContext {
-		public TerminalNode Identifier() { return getToken(ECMAScriptParser.Identifier, 0); }
-		public IdentifierNonterminalContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_identifierNonterminal; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).enterIdentifierNonterminal(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ECMAScriptListener ) ((ECMAScriptListener)listener).exitIdentifierNonterminal(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ECMAScriptVisitor ) return ((ECMAScriptVisitor<? extends T>)visitor).visitIdentifierNonterminal(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final IdentifierNonterminalContext identifierNonterminal() throws RecognitionException {
-		IdentifierNonterminalContext _localctx = new IdentifierNonterminalContext(_ctx, getState());
-		enterRule(_localctx, 110, RULE_identifierNonterminal);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(619);
-			match(Identifier);
 			}
 		}
 		catch (RecognitionException re) {
@@ -5695,8 +5261,18 @@ public class ECMAScriptParser extends Parser {
 
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 11:
-			return expressionStatement_sempred((ExpressionStatementContext)_localctx, predIndex);
+		case 2:
+			return sourceElement_sempred((SourceElementContext)_localctx, predIndex);
+		case 3:
+			return statement_sempred((StatementContext)_localctx, predIndex);
+		case 14:
+			return continueStatement_sempred((ContinueStatementContext)_localctx, predIndex);
+		case 15:
+			return breakStatement_sempred((BreakStatementContext)_localctx, predIndex);
+		case 16:
+			return returnStatement_sempred((ReturnStatementContext)_localctx, predIndex);
+		case 24:
+			return throwStatement_sempred((ThrowStatementContext)_localctx, predIndex);
 		case 43:
 			return singleExpression_sempred((SingleExpressionContext)_localctx, predIndex);
 		case 51:
@@ -5708,317 +5284,520 @@ public class ECMAScriptParser extends Parser {
 		}
 		return true;
 	}
-	private boolean expressionStatement_sempred(ExpressionStatementContext _localctx, int predIndex) {
+	private boolean sourceElement_sempred(SourceElementContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return (_input.LA(1) != OpenBrace) && (_input.LA(1) != Function);
+			return _input.LA(1) != Function;
+		}
+		return true;
+	}
+	private boolean statement_sempred(StatementContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 1:
+			return _input.LA(1) != OpenBrace;
+		}
+		return true;
+	}
+	private boolean continueStatement_sempred(ContinueStatementContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 2:
+			return !here(LineTerminator);
+		}
+		return true;
+	}
+	private boolean breakStatement_sempred(BreakStatementContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 3:
+			return !here(LineTerminator);
+		}
+		return true;
+	}
+	private boolean returnStatement_sempred(ReturnStatementContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 4:
+			return !here(LineTerminator);
+		}
+		return true;
+	}
+	private boolean throwStatement_sempred(ThrowStatementContext _localctx, int predIndex) {
+		switch (predIndex) {
+		case 5:
+			return !here(LineTerminator);
 		}
 		return true;
 	}
 	private boolean singleExpression_sempred(SingleExpressionContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 1:
-			return precpred(_ctx, 21);
-		case 2:
-			return precpred(_ctx, 20);
-		case 3:
-			return precpred(_ctx, 19);
-		case 4:
-			return precpred(_ctx, 18);
-		case 5:
-			return precpred(_ctx, 17);
 		case 6:
-			return precpred(_ctx, 16);
+			return precpred(_ctx, 21);
 		case 7:
-			return precpred(_ctx, 15);
+			return precpred(_ctx, 20);
 		case 8:
-			return precpred(_ctx, 14);
+			return precpred(_ctx, 19);
 		case 9:
-			return precpred(_ctx, 13);
+			return precpred(_ctx, 18);
 		case 10:
-			return precpred(_ctx, 12);
+			return precpred(_ctx, 17);
 		case 11:
-			return precpred(_ctx, 11);
+			return precpred(_ctx, 16);
 		case 12:
-			return precpred(_ctx, 10);
+			return precpred(_ctx, 15);
 		case 13:
-			return precpred(_ctx, 9);
+			return precpred(_ctx, 14);
 		case 14:
-			return precpred(_ctx, 8);
+			return precpred(_ctx, 13);
 		case 15:
-			return precpred(_ctx, 7);
+			return precpred(_ctx, 12);
 		case 16:
-			return precpred(_ctx, 36);
+			return precpred(_ctx, 11);
 		case 17:
-			return precpred(_ctx, 35);
+			return precpred(_ctx, 10);
 		case 18:
-			return precpred(_ctx, 34);
+			return precpred(_ctx, 9);
 		case 19:
-			return precpred(_ctx, 32);
+			return precpred(_ctx, 8);
 		case 20:
-			return !here(LineTerminator);
+			return precpred(_ctx, 7);
 		case 21:
-			return precpred(_ctx, 31);
+			return precpred(_ctx, 36);
 		case 22:
+			return precpred(_ctx, 35);
+		case 23:
+			return precpred(_ctx, 34);
+		case 24:
+			return precpred(_ctx, 32);
+		case 25:
+			return !here(LineTerminator);
+		case 26:
+			return precpred(_ctx, 31);
+		case 27:
 			return !here(LineTerminator);
 		}
 		return true;
 	}
 	private boolean getter_sempred(GetterContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 23:
+		case 28:
 			return _input.LT(1).getText().equals("get");
 		}
 		return true;
 	}
 	private boolean setter_sempred(SetterContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 24:
+		case 29:
 			return _input.LT(1).getText().equals("set");
 		}
 		return true;
 	}
 	private boolean eos_sempred(EosContext _localctx, int predIndex) {
 		switch (predIndex) {
-		case 25:
+		case 30:
 			return lineTerminatorAhead();
-		case 26:
+		case 31:
 			return _input.LT(1).getType() == CloseBrace;
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3i\u0270\4\2\t\2\4"+
-		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
-		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
-		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\4\30\t\30\4\31\t\31"+
-		"\4\32\t\32\4\33\t\33\4\34\t\34\4\35\t\35\4\36\t\36\4\37\t\37\4 \t \4!"+
-		"\t!\4\"\t\"\4#\t#\4$\t$\4%\t%\4&\t&\4\'\t\'\4(\t(\4)\t)\4*\t*\4+\t+\4"+
-		",\t,\4-\t-\4.\t.\4/\t/\4\60\t\60\4\61\t\61\4\62\t\62\4\63\t\63\4\64\t"+
-		"\64\4\65\t\65\4\66\t\66\4\67\t\67\48\t8\49\t9\3\2\5\2t\n\2\3\2\3\2\3\3"+
-		"\6\3y\n\3\r\3\16\3z\3\4\3\4\5\4\177\n\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3"+
-		"\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5\u0090\n\5\3\6\3\6\5\6\u0094\n\6\3\6"+
-		"\3\6\3\7\6\7\u0099\n\7\r\7\16\7\u009a\3\b\3\b\3\b\3\b\3\t\3\t\3\t\7\t"+
-		"\u00a4\n\t\f\t\16\t\u00a7\13\t\3\n\3\n\5\n\u00ab\n\n\3\13\3\13\3\13\3"+
-		"\f\3\f\3\r\3\r\3\r\3\r\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16\u00bd\n"+
-		"\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3"+
-		"\17\3\17\3\17\3\17\5\17\u00d0\n\17\3\17\3\17\5\17\u00d4\n\17\3\17\3\17"+
-		"\5\17\u00d8\n\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\5\17\u00e2\n"+
-		"\17\3\17\3\17\5\17\u00e6\n\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17"+
-		"\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\5\17\u00fc"+
-		"\n\17\3\20\3\20\5\20\u0100\n\20\3\20\3\20\3\21\3\21\5\21\u0106\n\21\3"+
-		"\21\3\21\3\22\3\22\5\22\u010c\n\22\3\22\3\22\3\23\3\23\3\23\3\23\3\23"+
-		"\3\23\3\24\3\24\3\24\3\24\3\24\3\24\3\25\3\25\5\25\u011e\n\25\3\25\3\25"+
-		"\5\25\u0122\n\25\5\25\u0124\n\25\3\25\3\25\3\26\6\26\u0129\n\26\r\26\16"+
-		"\26\u012a\3\27\3\27\3\27\3\27\5\27\u0131\n\27\3\30\3\30\3\30\5\30\u0136"+
-		"\n\30\3\31\3\31\3\31\3\31\3\32\3\32\3\32\3\32\3\33\3\33\3\33\3\33\3\33"+
-		"\3\33\3\33\3\33\3\33\3\33\3\33\3\33\3\33\5\33\u014d\n\33\3\34\3\34\3\34"+
-		"\3\34\3\34\3\34\3\35\3\35\3\35\3\36\3\36\3\36\3\37\3\37\3\37\3\37\5\37"+
-		"\u015f\n\37\3\37\3\37\3\37\3\37\3\37\3 \3 \3 \7 \u0169\n \f \16 \u016c"+
-		"\13 \3!\5!\u016f\n!\3\"\3\"\5\"\u0173\n\"\3\"\5\"\u0176\n\"\3\"\5\"\u0179"+
-		"\n\"\3\"\3\"\3#\5#\u017e\n#\3#\3#\3#\5#\u0183\n#\3#\7#\u0186\n#\f#\16"+
-		"#\u0189\13#\3$\6$\u018c\n$\r$\16$\u018d\3%\3%\5%\u0192\n%\3%\5%\u0195"+
-		"\n%\3%\3%\3&\3&\3&\7&\u019c\n&\f&\16&\u019f\13&\3\'\3\'\3\'\3\'\3\'\3"+
-		"\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\3\'\5\'\u01b4\n\'\3"+
-		"(\3(\3(\5(\u01b9\n(\3)\3)\3*\3*\5*\u01bf\n*\3*\3*\3+\3+\3+\7+\u01c6\n"+
-		"+\f+\16+\u01c9\13+\3,\3,\3,\7,\u01ce\n,\f,\16,\u01d1\13,\3-\3-\3-\5-\u01d6"+
-		"\n-\3-\3-\5-\u01da\n-\3-\3-\3-\3-\3-\3-\3-\3-\5-\u01e4\n-\3-\3-\3-\3-"+
-		"\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-"+
-		"\5-\u0201\n-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-"+
-		"\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-"+
-		"\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-\3-"+
-		"\7-\u0244\n-\f-\16-\u0247\13-\3.\3.\3/\3/\5/\u024d\n/\3\60\3\60\3\61\3"+
-		"\61\5\61\u0253\n\61\3\62\3\62\3\62\5\62\u0258\n\62\3\63\3\63\3\64\3\64"+
-		"\3\65\3\65\3\65\3\65\3\66\3\66\3\66\3\66\3\67\3\67\3\67\3\67\5\67\u026a"+
-		"\n\67\38\38\39\39\39\2\3X:\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$"+
-		"&(*,.\60\62\64\668:<>@BDFHJLNPRTVXZ\\^`bdfhjlnp\2\r\3\2\27\31\3\2\23\24"+
-		"\3\2\32\34\3\2\35 \3\2!$\3\2*\64\5\2\3\3\65\66ee\3\2\679\3\2\65\66\3\2"+
-		":S\3\2Tc\2\u02a4\2s\3\2\2\2\4x\3\2\2\2\6~\3\2\2\2\b\u008f\3\2\2\2\n\u0091"+
-		"\3\2\2\2\f\u0098\3\2\2\2\16\u009c\3\2\2\2\20\u00a0\3\2\2\2\22\u00a8\3"+
-		"\2\2\2\24\u00ac\3\2\2\2\26\u00af\3\2\2\2\30\u00b1\3\2\2\2\32\u00b5\3\2"+
-		"\2\2\34\u00fb\3\2\2\2\36\u00fd\3\2\2\2 \u0103\3\2\2\2\"\u0109\3\2\2\2"+
-		"$\u010f\3\2\2\2&\u0115\3\2\2\2(\u011b\3\2\2\2*\u0128\3\2\2\2,\u012c\3"+
-		"\2\2\2.\u0132\3\2\2\2\60\u0137\3\2\2\2\62\u013b\3\2\2\2\64\u014c\3\2\2"+
-		"\2\66\u014e\3\2\2\28\u0154\3\2\2\2:\u0157\3\2\2\2<\u015a\3\2\2\2>\u0165"+
-		"\3\2\2\2@\u016e\3\2\2\2B\u0170\3\2\2\2D\u017d\3\2\2\2F\u018b\3\2\2\2H"+
-		"\u018f\3\2\2\2J\u0198\3\2\2\2L\u01b3\3\2\2\2N\u01b8\3\2\2\2P\u01ba\3\2"+
-		"\2\2R\u01bc\3\2\2\2T\u01c2\3\2\2\2V\u01ca\3\2\2\2X\u0200\3\2\2\2Z\u0248"+
-		"\3\2\2\2\\\u024c\3\2\2\2^\u024e\3\2\2\2`\u0252\3\2\2\2b\u0257\3\2\2\2"+
-		"d\u0259\3\2\2\2f\u025b\3\2\2\2h\u025d\3\2\2\2j\u0261\3\2\2\2l\u0269\3"+
-		"\2\2\2n\u026b\3\2\2\2p\u026d\3\2\2\2rt\5\4\3\2sr\3\2\2\2st\3\2\2\2tu\3"+
-		"\2\2\2uv\7\2\2\3v\3\3\2\2\2wy\5\6\4\2xw\3\2\2\2yz\3\2\2\2zx\3\2\2\2z{"+
-		"\3\2\2\2{\5\3\2\2\2|\177\5\b\5\2}\177\5<\37\2~|\3\2\2\2~}\3\2\2\2\177"+
-		"\7\3\2\2\2\u0080\u0090\5\n\6\2\u0081\u0090\5\16\b\2\u0082\u0090\5\26\f"+
-		"\2\u0083\u0090\5\30\r\2\u0084\u0090\5\32\16\2\u0085\u0090\5\34\17\2\u0086"+
-		"\u0090\5\36\20\2\u0087\u0090\5 \21\2\u0088\u0090\5\"\22\2\u0089\u0090"+
-		"\5$\23\2\u008a\u0090\5\60\31\2\u008b\u0090\5&\24\2\u008c\u0090\5\62\32"+
-		"\2\u008d\u0090\5\64\33\2\u008e\u0090\5:\36\2\u008f\u0080\3\2\2\2\u008f"+
-		"\u0081\3\2\2\2\u008f\u0082\3\2\2\2\u008f\u0083\3\2\2\2\u008f\u0084\3\2"+
-		"\2\2\u008f\u0085\3\2\2\2\u008f\u0086\3\2\2\2\u008f\u0087\3\2\2\2\u008f"+
-		"\u0088\3\2\2\2\u008f\u0089\3\2\2\2\u008f\u008a\3\2\2\2\u008f\u008b\3\2"+
-		"\2\2\u008f\u008c\3\2\2\2\u008f\u008d\3\2\2\2\u008f\u008e\3\2\2\2\u0090"+
-		"\t\3\2\2\2\u0091\u0093\7\t\2\2\u0092\u0094\5\f\7\2\u0093\u0092\3\2\2\2"+
-		"\u0093\u0094\3\2\2\2\u0094\u0095\3\2\2\2\u0095\u0096\7\n\2\2\u0096\13"+
-		"\3\2\2\2\u0097\u0099\5\b\5\2\u0098\u0097\3\2\2\2\u0099\u009a\3\2\2\2\u009a"+
-		"\u0098\3\2\2\2\u009a\u009b\3\2\2\2\u009b\r\3\2\2\2\u009c\u009d\7A\2\2"+
-		"\u009d\u009e\5\20\t\2\u009e\u009f\5l\67\2\u009f\17\3\2\2\2\u00a0\u00a5"+
-		"\5\22\n\2\u00a1\u00a2\7\f\2\2\u00a2\u00a4\5\22\n\2\u00a3\u00a1\3\2\2\2"+
-		"\u00a4\u00a7\3\2\2\2\u00a5\u00a3\3\2\2\2\u00a5\u00a6\3\2\2\2\u00a6\21"+
-		"\3\2\2\2\u00a7\u00a5\3\2\2\2\u00a8\u00aa\5p9\2\u00a9\u00ab\5\24\13\2\u00aa"+
-		"\u00a9\3\2\2\2\u00aa\u00ab\3\2\2\2\u00ab\23\3\2\2\2\u00ac\u00ad\7\r\2"+
-		"\2\u00ad\u00ae\5X-\2\u00ae\25\3\2\2\2\u00af\u00b0\7\13\2\2\u00b0\27\3"+
-		"\2\2\2\u00b1\u00b2\6\r\2\2\u00b2\u00b3\5V,\2\u00b3\u00b4\5l\67\2\u00b4"+
-		"\31\3\2\2\2\u00b5\u00b6\7O\2\2\u00b6\u00b7\7\7\2\2\u00b7\u00b8\5V,\2\u00b8"+
-		"\u00b9\7\b\2\2\u00b9\u00bc\5\b\5\2\u00ba\u00bb\7?\2\2\u00bb\u00bd\5\b"+
-		"\5\2\u00bc\u00ba\3\2\2\2\u00bc\u00bd\3\2\2\2\u00bd\33\3\2\2\2\u00be\u00bf"+
-		"\7;\2\2\u00bf\u00c0\5\b\5\2\u00c0\u00c1\7I\2\2\u00c1\u00c2\7\7\2\2\u00c2"+
-		"\u00c3\5V,\2\u00c3\u00c4\7\b\2\2\u00c4\u00c5\5l\67\2\u00c5\u00fc\3\2\2"+
-		"\2\u00c6\u00c7\7I\2\2\u00c7\u00c8\7\7\2\2\u00c8\u00c9\5V,\2\u00c9\u00ca"+
-		"\7\b\2\2\u00ca\u00cb\5\b\5\2\u00cb\u00fc\3\2\2\2\u00cc\u00cd\7G\2\2\u00cd"+
-		"\u00cf\7\7\2\2\u00ce\u00d0\5V,\2\u00cf\u00ce\3\2\2\2\u00cf\u00d0\3\2\2"+
-		"\2\u00d0\u00d1\3\2\2\2\u00d1\u00d3\7\13\2\2\u00d2\u00d4\5V,\2\u00d3\u00d2"+
-		"\3\2\2\2\u00d3\u00d4\3\2\2\2\u00d4\u00d5\3\2\2\2\u00d5\u00d7\7\13\2\2"+
-		"\u00d6\u00d8\5V,\2\u00d7\u00d6\3\2\2\2\u00d7\u00d8\3\2\2\2\u00d8\u00d9"+
-		"\3\2\2\2\u00d9\u00da\7\b\2\2\u00da\u00fc\5\b\5\2\u00db\u00dc\7G\2\2\u00dc"+
-		"\u00dd\7\7\2\2\u00dd\u00de\7A\2\2\u00de\u00df\5\20\t\2\u00df\u00e1\7\13"+
-		"\2\2\u00e0\u00e2\5V,\2\u00e1\u00e0\3\2\2\2\u00e1\u00e2\3\2\2\2\u00e2\u00e3"+
-		"\3\2\2\2\u00e3\u00e5\7\13\2\2\u00e4\u00e6\5V,\2\u00e5\u00e4\3\2\2\2\u00e5"+
-		"\u00e6\3\2\2\2\u00e6\u00e7\3\2\2\2\u00e7\u00e8\7\b\2\2\u00e8\u00e9\5\b"+
-		"\5\2\u00e9\u00fc\3\2\2\2\u00ea\u00eb\7G\2\2\u00eb\u00ec\7\7\2\2\u00ec"+
-		"\u00ed\5X-\2\u00ed\u00ee\7R\2\2\u00ee\u00ef\5V,\2\u00ef\u00f0\7\b\2\2"+
-		"\u00f0\u00f1\5\b\5\2\u00f1\u00fc\3\2\2\2\u00f2\u00f3\7G\2\2\u00f3\u00f4"+
-		"\7\7\2\2\u00f4\u00f5\7A\2\2\u00f5\u00f6\5\22\n\2\u00f6\u00f7\7R\2\2\u00f7"+
-		"\u00f8\5V,\2\u00f8\u00f9\7\b\2\2\u00f9\u00fa\5\b\5\2\u00fa\u00fc\3\2\2"+
-		"\2\u00fb\u00be\3\2\2\2\u00fb\u00c6\3\2\2\2\u00fb\u00cc\3\2\2\2\u00fb\u00db"+
-		"\3\2\2\2\u00fb\u00ea\3\2\2\2\u00fb\u00f2\3\2\2\2\u00fc\35\3\2\2\2\u00fd"+
-		"\u00ff\7F\2\2\u00fe\u0100\5p9\2\u00ff\u00fe\3\2\2\2\u00ff\u0100\3\2\2"+
-		"\2\u0100\u0101\3\2\2\2\u0101\u0102\5l\67\2\u0102\37\3\2\2\2\u0103\u0105"+
-		"\7:\2\2\u0104\u0106\5p9\2\u0105\u0104\3\2\2\2\u0105\u0106\3\2\2\2\u0106"+
-		"\u0107\3\2\2\2\u0107\u0108\5l\67\2\u0108!\3\2\2\2\u0109\u010b\7D\2\2\u010a"+
-		"\u010c\5V,\2\u010b\u010a\3\2\2\2\u010b\u010c\3\2\2\2\u010c\u010d\3\2\2"+
-		"\2\u010d\u010e\5l\67\2\u010e#\3\2\2\2\u010f\u0110\7M\2\2\u0110\u0111\7"+
-		"\7\2\2\u0111\u0112\5V,\2\u0112\u0113\7\b\2\2\u0113\u0114\5\b\5\2\u0114"+
-		"%\3\2\2\2\u0115\u0116\7H\2\2\u0116\u0117\7\7\2\2\u0117\u0118\5V,\2\u0118"+
-		"\u0119\7\b\2\2\u0119\u011a\5(\25\2\u011a\'\3\2\2\2\u011b\u011d\7\t\2\2"+
-		"\u011c\u011e\5*\26\2\u011d\u011c\3\2\2\2\u011d\u011e\3\2\2\2\u011e\u0123"+
-		"\3\2\2\2\u011f\u0121\5.\30\2\u0120\u0122\5*\26\2\u0121\u0120\3\2\2\2\u0121"+
-		"\u0122\3\2\2\2\u0122\u0124\3\2\2\2\u0123\u011f\3\2\2\2\u0123\u0124\3\2"+
-		"\2\2\u0124\u0125\3\2\2\2\u0125\u0126\7\n\2\2\u0126)\3\2\2\2\u0127\u0129"+
-		"\5,\27\2\u0128\u0127\3\2\2\2\u0129\u012a\3\2\2\2\u012a\u0128\3\2\2\2\u012a"+
-		"\u012b\3\2\2\2\u012b+\3\2\2\2\u012c\u012d\7>\2\2\u012d\u012e\5V,\2\u012e"+
-		"\u0130\7\17\2\2\u012f\u0131\5\f\7\2\u0130\u012f\3\2\2\2\u0130\u0131\3"+
-		"\2\2\2\u0131-\3\2\2\2\u0132\u0133\7N\2\2\u0133\u0135\7\17\2\2\u0134\u0136"+
-		"\5\f\7\2\u0135\u0134\3\2\2\2\u0135\u0136\3\2\2\2\u0136/\3\2\2\2\u0137"+
-		"\u0138\5p9\2\u0138\u0139\7\17\2\2\u0139\u013a\5\b\5\2\u013a\61\3\2\2\2"+
-		"\u013b\u013c\7P\2\2\u013c\u013d\5V,\2\u013d\u013e\5l\67\2\u013e\63\3\2"+
-		"\2\2\u013f\u0140\7S\2\2\u0140\u0141\5\n\6\2\u0141\u0142\5\66\34\2\u0142"+
-		"\u014d\3\2\2\2\u0143\u0144\7S\2\2\u0144\u0145\5\n\6\2\u0145\u0146\58\35"+
-		"\2\u0146\u014d\3\2\2\2\u0147\u0148\7S\2\2\u0148\u0149\5\n\6\2\u0149\u014a"+
-		"\5\66\34\2\u014a\u014b\58\35\2\u014b\u014d\3\2\2\2\u014c\u013f\3\2\2\2"+
-		"\u014c\u0143\3\2\2\2\u014c\u0147\3\2\2\2\u014d\65\3\2\2\2\u014e\u014f"+
-		"\7B\2\2\u014f\u0150\7\7\2\2\u0150\u0151\5p9\2\u0151\u0152\7\b\2\2\u0152"+
-		"\u0153\5\n\6\2\u0153\67\3\2\2\2\u0154\u0155\7C\2\2\u0155\u0156\5\n\6\2"+
-		"\u01569\3\2\2\2\u0157\u0158\7J\2\2\u0158\u0159\5l\67\2\u0159;\3\2\2\2"+
-		"\u015a\u015b\7K\2\2\u015b\u015c\5p9\2\u015c\u015e\7\7\2\2\u015d\u015f"+
-		"\5> \2\u015e\u015d\3\2\2\2\u015e\u015f\3\2\2\2\u015f\u0160\3\2\2\2\u0160"+
-		"\u0161\7\b\2\2\u0161\u0162\7\t\2\2\u0162\u0163\5@!\2\u0163\u0164\7\n\2"+
-		"\2\u0164=\3\2\2\2\u0165\u016a\5p9\2\u0166\u0167\7\f\2\2\u0167\u0169\5"+
-		"p9\2\u0168\u0166\3\2\2\2\u0169\u016c\3\2\2\2\u016a\u0168\3\2\2\2\u016a"+
-		"\u016b\3\2\2\2\u016b?\3\2\2\2\u016c\u016a\3\2\2\2\u016d\u016f\5\4\3\2"+
-		"\u016e\u016d\3\2\2\2\u016e\u016f\3\2\2\2\u016fA\3\2\2\2\u0170\u0172\7"+
-		"\5\2\2\u0171\u0173\5D#\2\u0172\u0171\3\2\2\2\u0172\u0173\3\2\2\2\u0173"+
-		"\u0175\3\2\2\2\u0174\u0176\7\f\2\2\u0175\u0174\3\2\2\2\u0175\u0176\3\2"+
-		"\2\2\u0176\u0178\3\2\2\2\u0177\u0179\5F$\2\u0178\u0177\3\2\2\2\u0178\u0179"+
-		"\3\2\2\2\u0179\u017a\3\2\2\2\u017a\u017b\7\6\2\2\u017bC\3\2\2\2\u017c"+
-		"\u017e\5F$\2\u017d\u017c\3\2\2\2\u017d\u017e\3\2\2\2\u017e\u017f\3\2\2"+
-		"\2\u017f\u0187\5X-\2\u0180\u0182\7\f\2\2\u0181\u0183\5F$\2\u0182\u0181"+
-		"\3\2\2\2\u0182\u0183\3\2\2\2\u0183\u0184\3\2\2\2\u0184\u0186\5X-\2\u0185"+
-		"\u0180\3\2\2\2\u0186\u0189\3\2\2\2\u0187\u0185\3\2\2\2\u0187\u0188\3\2"+
-		"\2\2\u0188E\3\2\2\2\u0189\u0187\3\2\2\2\u018a\u018c\7\f\2\2\u018b\u018a"+
-		"\3\2\2\2\u018c\u018d\3\2\2\2\u018d\u018b\3\2\2\2\u018d\u018e\3\2\2\2\u018e"+
-		"G\3\2\2\2\u018f\u0191\7\t\2\2\u0190\u0192\5J&\2\u0191\u0190\3\2\2\2\u0191"+
-		"\u0192\3\2\2\2\u0192\u0194\3\2\2\2\u0193\u0195\7\f\2\2\u0194\u0193\3\2"+
-		"\2\2\u0194\u0195\3\2\2\2\u0195\u0196\3\2\2\2\u0196\u0197\7\n\2\2\u0197"+
-		"I\3\2\2\2\u0198\u019d\5L\'\2\u0199\u019a\7\f\2\2\u019a\u019c\5L\'\2\u019b"+
-		"\u0199\3\2\2\2\u019c\u019f\3\2\2\2\u019d\u019b\3\2\2\2\u019d\u019e\3\2"+
-		"\2\2\u019eK\3\2\2\2\u019f\u019d\3\2\2\2\u01a0\u01a1\5N(\2\u01a1\u01a2"+
-		"\7\17\2\2\u01a2\u01a3\5X-\2\u01a3\u01b4\3\2\2\2\u01a4\u01a5\5h\65\2\u01a5"+
-		"\u01a6\7\7\2\2\u01a6\u01a7\7\b\2\2\u01a7\u01a8\7\t\2\2\u01a8\u01a9\5@"+
-		"!\2\u01a9\u01aa\7\n\2\2\u01aa\u01b4\3\2\2\2\u01ab\u01ac\5j\66\2\u01ac"+
-		"\u01ad\7\7\2\2\u01ad\u01ae\5P)\2\u01ae\u01af\7\b\2\2\u01af\u01b0\7\t\2"+
-		"\2\u01b0\u01b1\5@!\2\u01b1\u01b2\7\n\2\2\u01b2\u01b4\3\2\2\2\u01b3\u01a0"+
-		"\3\2\2\2\u01b3\u01a4\3\2\2\2\u01b3\u01ab\3\2\2\2\u01b4M\3\2\2\2\u01b5"+
-		"\u01b9\5`\61\2\u01b6\u01b9\7e\2\2\u01b7\u01b9\5^\60\2\u01b8\u01b5\3\2"+
-		"\2\2\u01b8\u01b6\3\2\2\2\u01b8\u01b7\3\2\2\2\u01b9O\3\2\2\2\u01ba\u01bb"+
-		"\5p9\2\u01bbQ\3\2\2\2\u01bc\u01be\7\7\2\2\u01bd\u01bf\5T+\2\u01be\u01bd"+
-		"\3\2\2\2\u01be\u01bf\3\2\2\2\u01bf\u01c0\3\2\2\2\u01c0\u01c1\7\b\2\2\u01c1"+
-		"S\3\2\2\2\u01c2\u01c7\5X-\2\u01c3\u01c4\7\f\2\2\u01c4\u01c6\5X-\2\u01c5"+
-		"\u01c3\3\2\2\2\u01c6\u01c9\3\2\2\2\u01c7\u01c5\3\2\2\2\u01c7\u01c8\3\2"+
-		"\2\2\u01c8U\3\2\2\2\u01c9\u01c7\3\2\2\2\u01ca\u01cf\5X-\2\u01cb\u01cc"+
-		"\7\f\2\2\u01cc\u01ce\5X-\2\u01cd\u01cb\3\2\2\2\u01ce\u01d1\3\2\2\2\u01cf"+
-		"\u01cd\3\2\2\2\u01cf\u01d0\3\2\2\2\u01d0W\3\2\2\2\u01d1\u01cf\3\2\2\2"+
-		"\u01d2\u01d3\b-\1\2\u01d3\u01d5\7K\2\2\u01d4\u01d6\7d\2\2\u01d5\u01d4"+
-		"\3\2\2\2\u01d5\u01d6\3\2\2\2\u01d6\u01d7\3\2\2\2\u01d7\u01d9\7\7\2\2\u01d8"+
-		"\u01da\5> \2\u01d9\u01d8\3\2\2\2\u01d9\u01da\3\2\2\2\u01da\u01db\3\2\2"+
-		"\2\u01db\u01dc\7\b\2\2\u01dc\u01dd\7\t\2\2\u01dd\u01de\5@!\2\u01de\u01df"+
-		"\7\n\2\2\u01df\u0201\3\2\2\2\u01e0\u01e1\7@\2\2\u01e1\u01e3\5X-\2\u01e2"+
-		"\u01e4\5R*\2\u01e3\u01e2\3\2\2\2\u01e3\u01e4\3\2\2\2\u01e4\u0201\3\2\2"+
-		"\2\u01e5\u01e6\7Q\2\2\u01e6\u0201\5X- \u01e7\u01e8\7E\2\2\u01e8\u0201"+
-		"\5X-\37\u01e9\u01ea\7=\2\2\u01ea\u0201\5X-\36\u01eb\u01ec\7\21\2\2\u01ec"+
-		"\u0201\5X-\35\u01ed\u01ee\7\22\2\2\u01ee\u0201\5X-\34\u01ef\u01f0\7\23"+
-		"\2\2\u01f0\u0201\5X-\33\u01f1\u01f2\7\24\2\2\u01f2\u0201\5X-\32\u01f3"+
-		"\u01f4\7\25\2\2\u01f4\u0201\5X-\31\u01f5\u01f6\7\26\2\2\u01f6\u0201\5"+
-		"X-\30\u01f7\u0201\7L\2\2\u01f8\u0201\7d\2\2\u01f9\u0201\5\\/\2\u01fa\u0201"+
-		"\5B\"\2\u01fb\u0201\5H%\2\u01fc\u01fd\7\7\2\2\u01fd\u01fe\5V,\2\u01fe"+
-		"\u01ff\7\b\2\2\u01ff\u0201\3\2\2\2\u0200\u01d2\3\2\2\2\u0200\u01e0\3\2"+
-		"\2\2\u0200\u01e5\3\2\2\2\u0200\u01e7\3\2\2\2\u0200\u01e9\3\2\2\2\u0200"+
-		"\u01eb\3\2\2\2\u0200\u01ed\3\2\2\2\u0200\u01ef\3\2\2\2\u0200\u01f1\3\2"+
-		"\2\2\u0200\u01f3\3\2\2\2\u0200\u01f5\3\2\2\2\u0200\u01f7\3\2\2\2\u0200"+
-		"\u01f8\3\2\2\2\u0200\u01f9\3\2\2\2\u0200\u01fa\3\2\2\2\u0200\u01fb\3\2"+
-		"\2\2\u0200\u01fc\3\2\2\2\u0201\u0245\3\2\2\2\u0202\u0203\f\27\2\2\u0203"+
-		"\u0204\t\2\2\2\u0204\u0244\5X-\30\u0205\u0206\f\26\2\2\u0206\u0207\t\3"+
-		"\2\2\u0207\u0244\5X-\27\u0208\u0209\f\25\2\2\u0209\u020a\t\4\2\2\u020a"+
-		"\u0244\5X-\26\u020b\u020c\f\24\2\2\u020c\u020d\t\5\2\2\u020d\u0244\5X"+
-		"-\25\u020e\u020f\f\23\2\2\u020f\u0210\7<\2\2\u0210\u0244\5X-\24\u0211"+
-		"\u0212\f\22\2\2\u0212\u0213\7R\2\2\u0213\u0244\5X-\23\u0214\u0215\f\21"+
-		"\2\2\u0215\u0216\t\6\2\2\u0216\u0244\5X-\22\u0217\u0218\f\20\2\2\u0218"+
-		"\u0219\7%\2\2\u0219\u0244\5X-\21\u021a\u021b\f\17\2\2\u021b\u021c\7&\2"+
-		"\2\u021c\u0244\5X-\20\u021d\u021e\f\16\2\2\u021e\u021f\7\'\2\2\u021f\u0244"+
-		"\5X-\17\u0220\u0221\f\r\2\2\u0221\u0222\7(\2\2\u0222\u0244\5X-\16\u0223"+
-		"\u0224\f\f\2\2\u0224\u0225\7)\2\2\u0225\u0244\5X-\r\u0226\u0227\f\13\2"+
-		"\2\u0227\u0228\7\16\2\2\u0228\u0229\5X-\2\u0229\u022a\7\17\2\2\u022a\u022b"+
-		"\5X-\f\u022b\u0244\3\2\2\2\u022c\u022d\f\n\2\2\u022d\u022e\7\r\2\2\u022e"+
-		"\u0244\5X-\13\u022f\u0230\f\t\2\2\u0230\u0231\5Z.\2\u0231\u0232\5X-\n"+
-		"\u0232\u0244\3\2\2\2\u0233\u0234\f&\2\2\u0234\u0235\7\5\2\2\u0235\u0236"+
-		"\5V,\2\u0236\u0237\7\6\2\2\u0237\u0244\3\2\2\2\u0238\u0239\f%\2\2\u0239"+
-		"\u023a\7\20\2\2\u023a\u0244\5`\61\2\u023b\u023c\f$\2\2\u023c\u0244\5R"+
-		"*\2\u023d\u023e\f\"\2\2\u023e\u023f\6-\26\2\u023f\u0244\7\21\2\2\u0240"+
-		"\u0241\f!\2\2\u0241\u0242\6-\30\2\u0242\u0244\7\22\2\2\u0243\u0202\3\2"+
-		"\2\2\u0243\u0205\3\2\2\2\u0243\u0208\3\2\2\2\u0243\u020b\3\2\2\2\u0243"+
-		"\u020e\3\2\2\2\u0243\u0211\3\2\2\2\u0243\u0214\3\2\2\2\u0243\u0217\3\2"+
-		"\2\2\u0243\u021a\3\2\2\2\u0243\u021d\3\2\2\2\u0243\u0220\3\2\2\2\u0243"+
-		"\u0223\3\2\2\2\u0243\u0226\3\2\2\2\u0243\u022c\3\2\2\2\u0243\u022f\3\2"+
-		"\2\2\u0243\u0233\3\2\2\2\u0243\u0238\3\2\2\2\u0243\u023b\3\2\2\2\u0243"+
-		"\u023d\3\2\2\2\u0243\u0240\3\2\2\2\u0244\u0247\3\2\2\2\u0245\u0243\3\2"+
-		"\2\2\u0245\u0246\3\2\2\2\u0246Y\3\2\2\2\u0247\u0245\3\2\2\2\u0248\u0249"+
-		"\t\7\2\2\u0249[\3\2\2\2\u024a\u024d\t\b\2\2\u024b\u024d\5^\60\2\u024c"+
-		"\u024a\3\2\2\2\u024c\u024b\3\2\2\2\u024d]\3\2\2\2\u024e\u024f\t\t\2\2"+
-		"\u024f_\3\2\2\2\u0250\u0253\7d\2\2\u0251\u0253\5b\62\2\u0252\u0250\3\2"+
-		"\2\2\u0252\u0251\3\2\2\2\u0253a\3\2\2\2\u0254\u0258\5d\63\2\u0255\u0258"+
-		"\5f\64\2\u0256\u0258\t\n\2\2\u0257\u0254\3\2\2\2\u0257\u0255\3\2\2\2\u0257"+
-		"\u0256\3\2\2\2\u0258c\3\2\2\2\u0259\u025a\t\13\2\2\u025ae\3\2\2\2\u025b"+
-		"\u025c\t\f\2\2\u025cg\3\2\2\2\u025d\u025e\6\65\31\2\u025e\u025f\5p9\2"+
-		"\u025f\u0260\5N(\2\u0260i\3\2\2\2\u0261\u0262\6\66\32\2\u0262\u0263\5"+
-		"p9\2\u0263\u0264\5N(\2\u0264k\3\2\2\2\u0265\u026a\7\13\2\2\u0266\u026a"+
-		"\7\2\2\3\u0267\u026a\6\67\33\2\u0268\u026a\6\67\34\2\u0269\u0265\3\2\2"+
-		"\2\u0269\u0266\3\2\2\2\u0269\u0267\3\2\2\2\u0269\u0268\3\2\2\2\u026am"+
-		"\3\2\2\2\u026b\u026c\7\2\2\3\u026co\3\2\2\2\u026d\u026e\7d\2\2\u026eq"+
-		"\3\2\2\2\67sz~\u008f\u0093\u009a\u00a5\u00aa\u00bc\u00cf\u00d3\u00d7\u00e1"+
-		"\u00e5\u00fb\u00ff\u0105\u010b\u011d\u0121\u0123\u012a\u0130\u0135\u014c"+
-		"\u015e\u016a\u016e\u0172\u0175\u0178\u017d\u0182\u0187\u018d\u0191\u0194"+
-		"\u019d\u01b3\u01b8\u01be\u01c7\u01cf\u01d5\u01d9\u01e3\u0200\u0243\u0245"+
-		"\u024c\u0252\u0257\u0269";
+		"\u0004\u0001g\u0271\u0002\u0000\u0007\u0000\u0002\u0001\u0007\u0001\u0002"+
+		"\u0002\u0007\u0002\u0002\u0003\u0007\u0003\u0002\u0004\u0007\u0004\u0002"+
+		"\u0005\u0007\u0005\u0002\u0006\u0007\u0006\u0002\u0007\u0007\u0007\u0002"+
+		"\b\u0007\b\u0002\t\u0007\t\u0002\n\u0007\n\u0002\u000b\u0007\u000b\u0002"+
+		"\f\u0007\f\u0002\r\u0007\r\u0002\u000e\u0007\u000e\u0002\u000f\u0007\u000f"+
+		"\u0002\u0010\u0007\u0010\u0002\u0011\u0007\u0011\u0002\u0012\u0007\u0012"+
+		"\u0002\u0013\u0007\u0013\u0002\u0014\u0007\u0014\u0002\u0015\u0007\u0015"+
+		"\u0002\u0016\u0007\u0016\u0002\u0017\u0007\u0017\u0002\u0018\u0007\u0018"+
+		"\u0002\u0019\u0007\u0019\u0002\u001a\u0007\u001a\u0002\u001b\u0007\u001b"+
+		"\u0002\u001c\u0007\u001c\u0002\u001d\u0007\u001d\u0002\u001e\u0007\u001e"+
+		"\u0002\u001f\u0007\u001f\u0002 \u0007 \u0002!\u0007!\u0002\"\u0007\"\u0002"+
+		"#\u0007#\u0002$\u0007$\u0002%\u0007%\u0002&\u0007&\u0002\'\u0007\'\u0002"+
+		"(\u0007(\u0002)\u0007)\u0002*\u0007*\u0002+\u0007+\u0002,\u0007,\u0002"+
+		"-\u0007-\u0002.\u0007.\u0002/\u0007/\u00020\u00070\u00021\u00071\u0002"+
+		"2\u00072\u00023\u00073\u00024\u00074\u00025\u00075\u00026\u00076\u0001"+
+		"\u0000\u0003\u0000p\b\u0000\u0001\u0000\u0001\u0000\u0001\u0001\u0004"+
+		"\u0001u\b\u0001\u000b\u0001\f\u0001v\u0001\u0002\u0001\u0002\u0001\u0002"+
+		"\u0003\u0002|\b\u0002\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
+		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
+		"\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003\u0001\u0003"+
+		"\u0003\u0003\u008e\b\u0003\u0001\u0004\u0001\u0004\u0003\u0004\u0092\b"+
+		"\u0004\u0001\u0004\u0001\u0004\u0001\u0005\u0004\u0005\u0097\b\u0005\u000b"+
+		"\u0005\f\u0005\u0098\u0001\u0006\u0001\u0006\u0001\u0006\u0001\u0006\u0001"+
+		"\u0007\u0001\u0007\u0001\u0007\u0005\u0007\u00a2\b\u0007\n\u0007\f\u0007"+
+		"\u00a5\t\u0007\u0001\b\u0001\b\u0003\b\u00a9\b\b\u0001\t\u0001\t\u0001"+
+		"\t\u0001\n\u0001\n\u0001\u000b\u0001\u000b\u0001\u000b\u0001\f\u0001\f"+
+		"\u0001\f\u0001\f\u0001\f\u0001\f\u0001\f\u0003\f\u00ba\b\f\u0001\r\u0001"+
+		"\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001"+
+		"\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0003\r\u00cd\b\r\u0001"+
+		"\r\u0001\r\u0003\r\u00d1\b\r\u0001\r\u0001\r\u0003\r\u00d5\b\r\u0001\r"+
+		"\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0003\r\u00df"+
+		"\b\r\u0001\r\u0001\r\u0003\r\u00e3\b\r\u0001\r\u0001\r\u0001\r\u0001\r"+
+		"\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001"+
+		"\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0001\r\u0003\r\u00f9"+
+		"\b\r\u0001\u000e\u0001\u000e\u0001\u000e\u0003\u000e\u00fe\b\u000e\u0001"+
+		"\u000e\u0001\u000e\u0001\u000f\u0001\u000f\u0001\u000f\u0003\u000f\u0105"+
+		"\b\u000f\u0001\u000f\u0001\u000f\u0001\u0010\u0001\u0010\u0001\u0010\u0003"+
+		"\u0010\u010c\b\u0010\u0001\u0010\u0001\u0010\u0001\u0011\u0001\u0011\u0001"+
+		"\u0011\u0001\u0011\u0001\u0011\u0001\u0011\u0001\u0012\u0001\u0012\u0001"+
+		"\u0012\u0001\u0012\u0001\u0012\u0001\u0012\u0001\u0013\u0001\u0013\u0003"+
+		"\u0013\u011e\b\u0013\u0001\u0013\u0001\u0013\u0003\u0013\u0122\b\u0013"+
+		"\u0003\u0013\u0124\b\u0013\u0001\u0013\u0001\u0013\u0001\u0014\u0004\u0014"+
+		"\u0129\b\u0014\u000b\u0014\f\u0014\u012a\u0001\u0015\u0001\u0015\u0001"+
+		"\u0015\u0001\u0015\u0003\u0015\u0131\b\u0015\u0001\u0016\u0001\u0016\u0001"+
+		"\u0016\u0003\u0016\u0136\b\u0016\u0001\u0017\u0001\u0017\u0001\u0017\u0001"+
+		"\u0017\u0001\u0018\u0001\u0018\u0001\u0018\u0001\u0018\u0001\u0018\u0001"+
+		"\u0019\u0001\u0019\u0001\u0019\u0001\u0019\u0001\u0019\u0001\u0019\u0001"+
+		"\u0019\u0001\u0019\u0001\u0019\u0001\u0019\u0001\u0019\u0001\u0019\u0001"+
+		"\u0019\u0003\u0019\u014e\b\u0019\u0001\u001a\u0001\u001a\u0001\u001a\u0001"+
+		"\u001a\u0001\u001a\u0001\u001a\u0001\u001b\u0001\u001b\u0001\u001b\u0001"+
+		"\u001c\u0001\u001c\u0001\u001c\u0001\u001d\u0001\u001d\u0001\u001d\u0001"+
+		"\u001d\u0003\u001d\u0160\b\u001d\u0001\u001d\u0001\u001d\u0001\u001d\u0001"+
+		"\u001d\u0001\u001d\u0001\u001e\u0001\u001e\u0001\u001e\u0005\u001e\u016a"+
+		"\b\u001e\n\u001e\f\u001e\u016d\t\u001e\u0001\u001f\u0003\u001f\u0170\b"+
+		"\u001f\u0001 \u0001 \u0003 \u0174\b \u0001 \u0003 \u0177\b \u0001 \u0003"+
+		" \u017a\b \u0001 \u0001 \u0001!\u0003!\u017f\b!\u0001!\u0001!\u0001!\u0003"+
+		"!\u0184\b!\u0001!\u0005!\u0187\b!\n!\f!\u018a\t!\u0001\"\u0004\"\u018d"+
+		"\b\"\u000b\"\f\"\u018e\u0001#\u0001#\u0001#\u0001#\u0001#\u0003#\u0196"+
+		"\b#\u0001#\u0001#\u0003#\u019a\b#\u0001$\u0001$\u0001$\u0005$\u019f\b"+
+		"$\n$\f$\u01a2\t$\u0001%\u0001%\u0001%\u0001%\u0001%\u0001%\u0001%\u0001"+
+		"%\u0001%\u0001%\u0001%\u0001%\u0001%\u0001%\u0001%\u0001%\u0001%\u0001"+
+		"%\u0001%\u0003%\u01b7\b%\u0001&\u0001&\u0001&\u0003&\u01bc\b&\u0001\'"+
+		"\u0001\'\u0001(\u0001(\u0003(\u01c2\b(\u0001(\u0001(\u0001)\u0001)\u0001"+
+		")\u0005)\u01c9\b)\n)\f)\u01cc\t)\u0001*\u0001*\u0001*\u0005*\u01d1\b*"+
+		"\n*\f*\u01d4\t*\u0001+\u0001+\u0001+\u0003+\u01d9\b+\u0001+\u0001+\u0003"+
+		"+\u01dd\b+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0003"+
+		"+\u01e7\b+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001"+
+		"+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001"+
+		"+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0003+\u0204"+
+		"\b+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001"+
+		"+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001"+
+		"+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001"+
+		"+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001"+
+		"+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001"+
+		"+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001+\u0001"+
+		"+\u0001+\u0001+\u0001+\u0001+\u0001+\u0005+\u0247\b+\n+\f+\u024a\t+\u0001"+
+		",\u0001,\u0001-\u0001-\u0003-\u0250\b-\u0001.\u0001.\u0001/\u0001/\u0003"+
+		"/\u0256\b/\u00010\u00010\u00010\u00030\u025b\b0\u00011\u00011\u00012\u0001"+
+		"2\u00013\u00013\u00013\u00013\u00014\u00014\u00014\u00014\u00015\u0001"+
+		"5\u00015\u00015\u00035\u026d\b5\u00016\u00016\u00016\u0000\u0001V7\u0000"+
+		"\u0002\u0004\u0006\b\n\f\u000e\u0010\u0012\u0014\u0016\u0018\u001a\u001c"+
+		"\u001e \"$&(*,.02468:<>@BDFHJLNPRTVXZ\\^`bdfhjl\u0000\u000b\u0001\u0000"+
+		"\u0015\u0017\u0001\u0000\u0011\u0012\u0001\u0000\u0018\u001a\u0001\u0000"+
+		"\u001b\u001e\u0001\u0000\u001f\"\u0001\u0000(2\u0003\u0000\u0001\u0001"+
+		"34cc\u0001\u000057\u0001\u000034\u0001\u00008Q\u0001\u0000Ra\u02a6\u0000"+
+		"o\u0001\u0000\u0000\u0000\u0002t\u0001\u0000\u0000\u0000\u0004{\u0001"+
+		"\u0000\u0000\u0000\u0006\u008d\u0001\u0000\u0000\u0000\b\u008f\u0001\u0000"+
+		"\u0000\u0000\n\u0096\u0001\u0000\u0000\u0000\f\u009a\u0001\u0000\u0000"+
+		"\u0000\u000e\u009e\u0001\u0000\u0000\u0000\u0010\u00a6\u0001\u0000\u0000"+
+		"\u0000\u0012\u00aa\u0001\u0000\u0000\u0000\u0014\u00ad\u0001\u0000\u0000"+
+		"\u0000\u0016\u00af\u0001\u0000\u0000\u0000\u0018\u00b2\u0001\u0000\u0000"+
+		"\u0000\u001a\u00f8\u0001\u0000\u0000\u0000\u001c\u00fa\u0001\u0000\u0000"+
+		"\u0000\u001e\u0101\u0001\u0000\u0000\u0000 \u0108\u0001\u0000\u0000\u0000"+
+		"\"\u010f\u0001\u0000\u0000\u0000$\u0115\u0001\u0000\u0000\u0000&\u011b"+
+		"\u0001\u0000\u0000\u0000(\u0128\u0001\u0000\u0000\u0000*\u012c\u0001\u0000"+
+		"\u0000\u0000,\u0132\u0001\u0000\u0000\u0000.\u0137\u0001\u0000\u0000\u0000"+
+		"0\u013b\u0001\u0000\u0000\u00002\u014d\u0001\u0000\u0000\u00004\u014f"+
+		"\u0001\u0000\u0000\u00006\u0155\u0001\u0000\u0000\u00008\u0158\u0001\u0000"+
+		"\u0000\u0000:\u015b\u0001\u0000\u0000\u0000<\u0166\u0001\u0000\u0000\u0000"+
+		">\u016f\u0001\u0000\u0000\u0000@\u0171\u0001\u0000\u0000\u0000B\u017e"+
+		"\u0001\u0000\u0000\u0000D\u018c\u0001\u0000\u0000\u0000F\u0199\u0001\u0000"+
+		"\u0000\u0000H\u019b\u0001\u0000\u0000\u0000J\u01b6\u0001\u0000\u0000\u0000"+
+		"L\u01bb\u0001\u0000\u0000\u0000N\u01bd\u0001\u0000\u0000\u0000P\u01bf"+
+		"\u0001\u0000\u0000\u0000R\u01c5\u0001\u0000\u0000\u0000T\u01cd\u0001\u0000"+
+		"\u0000\u0000V\u0203\u0001\u0000\u0000\u0000X\u024b\u0001\u0000\u0000\u0000"+
+		"Z\u024f\u0001\u0000\u0000\u0000\\\u0251\u0001\u0000\u0000\u0000^\u0255"+
+		"\u0001\u0000\u0000\u0000`\u025a\u0001\u0000\u0000\u0000b\u025c\u0001\u0000"+
+		"\u0000\u0000d\u025e\u0001\u0000\u0000\u0000f\u0260\u0001\u0000\u0000\u0000"+
+		"h\u0264\u0001\u0000\u0000\u0000j\u026c\u0001\u0000\u0000\u0000l\u026e"+
+		"\u0001\u0000\u0000\u0000np\u0003\u0002\u0001\u0000on\u0001\u0000\u0000"+
+		"\u0000op\u0001\u0000\u0000\u0000pq\u0001\u0000\u0000\u0000qr\u0005\u0000"+
+		"\u0000\u0001r\u0001\u0001\u0000\u0000\u0000su\u0003\u0004\u0002\u0000"+
+		"ts\u0001\u0000\u0000\u0000uv\u0001\u0000\u0000\u0000vt\u0001\u0000\u0000"+
+		"\u0000vw\u0001\u0000\u0000\u0000w\u0003\u0001\u0000\u0000\u0000xy\u0004"+
+		"\u0002\u0000\u0000y|\u0003\u0006\u0003\u0000z|\u0003:\u001d\u0000{x\u0001"+
+		"\u0000\u0000\u0000{z\u0001\u0000\u0000\u0000|\u0005\u0001\u0000\u0000"+
+		"\u0000}\u008e\u0003\b\u0004\u0000~\u008e\u0003\f\u0006\u0000\u007f\u008e"+
+		"\u0003\u0014\n\u0000\u0080\u0081\u0004\u0003\u0001\u0000\u0081\u008e\u0003"+
+		"\u0016\u000b\u0000\u0082\u008e\u0003\u0018\f\u0000\u0083\u008e\u0003\u001a"+
+		"\r\u0000\u0084\u008e\u0003\u001c\u000e\u0000\u0085\u008e\u0003\u001e\u000f"+
+		"\u0000\u0086\u008e\u0003 \u0010\u0000\u0087\u008e\u0003\"\u0011\u0000"+
+		"\u0088\u008e\u0003.\u0017\u0000\u0089\u008e\u0003$\u0012\u0000\u008a\u008e"+
+		"\u00030\u0018\u0000\u008b\u008e\u00032\u0019\u0000\u008c\u008e\u00038"+
+		"\u001c\u0000\u008d}\u0001\u0000\u0000\u0000\u008d~\u0001\u0000\u0000\u0000"+
+		"\u008d\u007f\u0001\u0000\u0000\u0000\u008d\u0080\u0001\u0000\u0000\u0000"+
+		"\u008d\u0082\u0001\u0000\u0000\u0000\u008d\u0083\u0001\u0000\u0000\u0000"+
+		"\u008d\u0084\u0001\u0000\u0000\u0000\u008d\u0085\u0001\u0000\u0000\u0000"+
+		"\u008d\u0086\u0001\u0000\u0000\u0000\u008d\u0087\u0001\u0000\u0000\u0000"+
+		"\u008d\u0088\u0001\u0000\u0000\u0000\u008d\u0089\u0001\u0000\u0000\u0000"+
+		"\u008d\u008a\u0001\u0000\u0000\u0000\u008d\u008b\u0001\u0000\u0000\u0000"+
+		"\u008d\u008c\u0001\u0000\u0000\u0000\u008e\u0007\u0001\u0000\u0000\u0000"+
+		"\u008f\u0091\u0005\u0007\u0000\u0000\u0090\u0092\u0003\n\u0005\u0000\u0091"+
+		"\u0090\u0001\u0000\u0000\u0000\u0091\u0092\u0001\u0000\u0000\u0000\u0092"+
+		"\u0093\u0001\u0000\u0000\u0000\u0093\u0094\u0005\b\u0000\u0000\u0094\t"+
+		"\u0001\u0000\u0000\u0000\u0095\u0097\u0003\u0006\u0003\u0000\u0096\u0095"+
+		"\u0001\u0000\u0000\u0000\u0097\u0098\u0001\u0000\u0000\u0000\u0098\u0096"+
+		"\u0001\u0000\u0000\u0000\u0098\u0099\u0001\u0000\u0000\u0000\u0099\u000b"+
+		"\u0001\u0000\u0000\u0000\u009a\u009b\u0005?\u0000\u0000\u009b\u009c\u0003"+
+		"\u000e\u0007\u0000\u009c\u009d\u0003j5\u0000\u009d\r\u0001\u0000\u0000"+
+		"\u0000\u009e\u00a3\u0003\u0010\b\u0000\u009f\u00a0\u0005\n\u0000\u0000"+
+		"\u00a0\u00a2\u0003\u0010\b\u0000\u00a1\u009f\u0001\u0000\u0000\u0000\u00a2"+
+		"\u00a5\u0001\u0000\u0000\u0000\u00a3\u00a1\u0001\u0000\u0000\u0000\u00a3"+
+		"\u00a4\u0001\u0000\u0000\u0000\u00a4\u000f\u0001\u0000\u0000\u0000\u00a5"+
+		"\u00a3\u0001\u0000\u0000\u0000\u00a6\u00a8\u0005b\u0000\u0000\u00a7\u00a9"+
+		"\u0003\u0012\t\u0000\u00a8\u00a7\u0001\u0000\u0000\u0000\u00a8\u00a9\u0001"+
+		"\u0000\u0000\u0000\u00a9\u0011\u0001\u0000\u0000\u0000\u00aa\u00ab\u0005"+
+		"\u000b\u0000\u0000\u00ab\u00ac\u0003V+\u0000\u00ac\u0013\u0001\u0000\u0000"+
+		"\u0000\u00ad\u00ae\u0005\t\u0000\u0000\u00ae\u0015\u0001\u0000\u0000\u0000"+
+		"\u00af\u00b0\u0003T*\u0000\u00b0\u00b1\u0003j5\u0000\u00b1\u0017\u0001"+
+		"\u0000\u0000\u0000\u00b2\u00b3\u0005M\u0000\u0000\u00b3\u00b4\u0005\u0005"+
+		"\u0000\u0000\u00b4\u00b5\u0003T*\u0000\u00b5\u00b6\u0005\u0006\u0000\u0000"+
+		"\u00b6\u00b9\u0003\u0006\u0003\u0000\u00b7\u00b8\u0005=\u0000\u0000\u00b8"+
+		"\u00ba\u0003\u0006\u0003\u0000\u00b9\u00b7\u0001\u0000\u0000\u0000\u00b9"+
+		"\u00ba\u0001\u0000\u0000\u0000\u00ba\u0019\u0001\u0000\u0000\u0000\u00bb"+
+		"\u00bc\u00059\u0000\u0000\u00bc\u00bd\u0003\u0006\u0003\u0000\u00bd\u00be"+
+		"\u0005G\u0000\u0000\u00be\u00bf\u0005\u0005\u0000\u0000\u00bf\u00c0\u0003"+
+		"T*\u0000\u00c0\u00c1\u0005\u0006\u0000\u0000\u00c1\u00c2\u0003j5\u0000"+
+		"\u00c2\u00f9\u0001\u0000\u0000\u0000\u00c3\u00c4\u0005G\u0000\u0000\u00c4"+
+		"\u00c5\u0005\u0005\u0000\u0000\u00c5\u00c6\u0003T*\u0000\u00c6\u00c7\u0005"+
+		"\u0006\u0000\u0000\u00c7\u00c8\u0003\u0006\u0003\u0000\u00c8\u00f9\u0001"+
+		"\u0000\u0000\u0000\u00c9\u00ca\u0005E\u0000\u0000\u00ca\u00cc\u0005\u0005"+
+		"\u0000\u0000\u00cb\u00cd\u0003T*\u0000\u00cc\u00cb\u0001\u0000\u0000\u0000"+
+		"\u00cc\u00cd\u0001\u0000\u0000\u0000\u00cd\u00ce\u0001\u0000\u0000\u0000"+
+		"\u00ce\u00d0\u0005\t\u0000\u0000\u00cf\u00d1\u0003T*\u0000\u00d0\u00cf"+
+		"\u0001\u0000\u0000\u0000\u00d0\u00d1\u0001\u0000\u0000\u0000\u00d1\u00d2"+
+		"\u0001\u0000\u0000\u0000\u00d2\u00d4\u0005\t\u0000\u0000\u00d3\u00d5\u0003"+
+		"T*\u0000\u00d4\u00d3\u0001\u0000\u0000\u0000\u00d4\u00d5\u0001\u0000\u0000"+
+		"\u0000\u00d5\u00d6\u0001\u0000\u0000\u0000\u00d6\u00d7\u0005\u0006\u0000"+
+		"\u0000\u00d7\u00f9\u0003\u0006\u0003\u0000\u00d8\u00d9\u0005E\u0000\u0000"+
+		"\u00d9\u00da\u0005\u0005\u0000\u0000\u00da\u00db\u0005?\u0000\u0000\u00db"+
+		"\u00dc\u0003\u000e\u0007\u0000\u00dc\u00de\u0005\t\u0000\u0000\u00dd\u00df"+
+		"\u0003T*\u0000\u00de\u00dd\u0001\u0000\u0000\u0000\u00de\u00df\u0001\u0000"+
+		"\u0000\u0000\u00df\u00e0\u0001\u0000\u0000\u0000\u00e0\u00e2\u0005\t\u0000"+
+		"\u0000\u00e1\u00e3\u0003T*\u0000\u00e2\u00e1\u0001\u0000\u0000\u0000\u00e2"+
+		"\u00e3\u0001\u0000\u0000\u0000\u00e3\u00e4\u0001\u0000\u0000\u0000\u00e4"+
+		"\u00e5\u0005\u0006\u0000\u0000\u00e5\u00e6\u0003\u0006\u0003\u0000\u00e6"+
+		"\u00f9\u0001\u0000\u0000\u0000\u00e7\u00e8\u0005E\u0000\u0000\u00e8\u00e9"+
+		"\u0005\u0005\u0000\u0000\u00e9\u00ea\u0003V+\u0000\u00ea\u00eb\u0005P"+
+		"\u0000\u0000\u00eb\u00ec\u0003T*\u0000\u00ec\u00ed\u0005\u0006\u0000\u0000"+
+		"\u00ed\u00ee\u0003\u0006\u0003\u0000\u00ee\u00f9\u0001\u0000\u0000\u0000"+
+		"\u00ef\u00f0\u0005E\u0000\u0000\u00f0\u00f1\u0005\u0005\u0000\u0000\u00f1"+
+		"\u00f2\u0005?\u0000\u0000\u00f2\u00f3\u0003\u0010\b\u0000\u00f3\u00f4"+
+		"\u0005P\u0000\u0000\u00f4\u00f5\u0003T*\u0000\u00f5\u00f6\u0005\u0006"+
+		"\u0000\u0000\u00f6\u00f7\u0003\u0006\u0003\u0000\u00f7\u00f9\u0001\u0000"+
+		"\u0000\u0000\u00f8\u00bb\u0001\u0000\u0000\u0000\u00f8\u00c3\u0001\u0000"+
+		"\u0000\u0000\u00f8\u00c9\u0001\u0000\u0000\u0000\u00f8\u00d8\u0001\u0000"+
+		"\u0000\u0000\u00f8\u00e7\u0001\u0000\u0000\u0000\u00f8\u00ef\u0001\u0000"+
+		"\u0000\u0000\u00f9\u001b\u0001\u0000\u0000\u0000\u00fa\u00fd\u0005D\u0000"+
+		"\u0000\u00fb\u00fc\u0004\u000e\u0002\u0000\u00fc\u00fe\u0005b\u0000\u0000"+
+		"\u00fd\u00fb\u0001\u0000\u0000\u0000\u00fd\u00fe\u0001\u0000\u0000\u0000"+
+		"\u00fe\u00ff\u0001\u0000\u0000\u0000\u00ff\u0100\u0003j5\u0000\u0100\u001d"+
+		"\u0001\u0000\u0000\u0000\u0101\u0104\u00058\u0000\u0000\u0102\u0103\u0004"+
+		"\u000f\u0003\u0000\u0103\u0105\u0005b\u0000\u0000\u0104\u0102\u0001\u0000"+
+		"\u0000\u0000\u0104\u0105\u0001\u0000\u0000\u0000\u0105\u0106\u0001\u0000"+
+		"\u0000\u0000\u0106\u0107\u0003j5\u0000\u0107\u001f\u0001\u0000\u0000\u0000"+
+		"\u0108\u010b\u0005B\u0000\u0000\u0109\u010a\u0004\u0010\u0004\u0000\u010a"+
+		"\u010c\u0003T*\u0000\u010b\u0109\u0001\u0000\u0000\u0000\u010b\u010c\u0001"+
+		"\u0000\u0000\u0000\u010c\u010d\u0001\u0000\u0000\u0000\u010d\u010e\u0003"+
+		"j5\u0000\u010e!\u0001\u0000\u0000\u0000\u010f\u0110\u0005K\u0000\u0000"+
+		"\u0110\u0111\u0005\u0005\u0000\u0000\u0111\u0112\u0003T*\u0000\u0112\u0113"+
+		"\u0005\u0006\u0000\u0000\u0113\u0114\u0003\u0006\u0003\u0000\u0114#\u0001"+
+		"\u0000\u0000\u0000\u0115\u0116\u0005F\u0000\u0000\u0116\u0117\u0005\u0005"+
+		"\u0000\u0000\u0117\u0118\u0003T*\u0000\u0118\u0119\u0005\u0006\u0000\u0000"+
+		"\u0119\u011a\u0003&\u0013\u0000\u011a%\u0001\u0000\u0000\u0000\u011b\u011d"+
+		"\u0005\u0007\u0000\u0000\u011c\u011e\u0003(\u0014\u0000\u011d\u011c\u0001"+
+		"\u0000\u0000\u0000\u011d\u011e\u0001\u0000\u0000\u0000\u011e\u0123\u0001"+
+		"\u0000\u0000\u0000\u011f\u0121\u0003,\u0016\u0000\u0120\u0122\u0003(\u0014"+
+		"\u0000\u0121\u0120\u0001\u0000\u0000\u0000\u0121\u0122\u0001\u0000\u0000"+
+		"\u0000\u0122\u0124\u0001\u0000\u0000\u0000\u0123\u011f\u0001\u0000\u0000"+
+		"\u0000\u0123\u0124\u0001\u0000\u0000\u0000\u0124\u0125\u0001\u0000\u0000"+
+		"\u0000\u0125\u0126\u0005\b\u0000\u0000\u0126\'\u0001\u0000\u0000\u0000"+
+		"\u0127\u0129\u0003*\u0015\u0000\u0128\u0127\u0001\u0000\u0000\u0000\u0129"+
+		"\u012a\u0001\u0000\u0000\u0000\u012a\u0128\u0001\u0000\u0000\u0000\u012a"+
+		"\u012b\u0001\u0000\u0000\u0000\u012b)\u0001\u0000\u0000\u0000\u012c\u012d"+
+		"\u0005<\u0000\u0000\u012d\u012e\u0003T*\u0000\u012e\u0130\u0005\r\u0000"+
+		"\u0000\u012f\u0131\u0003\n\u0005\u0000\u0130\u012f\u0001\u0000\u0000\u0000"+
+		"\u0130\u0131\u0001\u0000\u0000\u0000\u0131+\u0001\u0000\u0000\u0000\u0132"+
+		"\u0133\u0005L\u0000\u0000\u0133\u0135\u0005\r\u0000\u0000\u0134\u0136"+
+		"\u0003\n\u0005\u0000\u0135\u0134\u0001\u0000\u0000\u0000\u0135\u0136\u0001"+
+		"\u0000\u0000\u0000\u0136-\u0001\u0000\u0000\u0000\u0137\u0138\u0005b\u0000"+
+		"\u0000\u0138\u0139\u0005\r\u0000\u0000\u0139\u013a\u0003\u0006\u0003\u0000"+
+		"\u013a/\u0001\u0000\u0000\u0000\u013b\u013c\u0005N\u0000\u0000\u013c\u013d"+
+		"\u0004\u0018\u0005\u0000\u013d\u013e\u0003T*\u0000\u013e\u013f\u0003j"+
+		"5\u0000\u013f1\u0001\u0000\u0000\u0000\u0140\u0141\u0005Q\u0000\u0000"+
+		"\u0141\u0142\u0003\b\u0004\u0000\u0142\u0143\u00034\u001a\u0000\u0143"+
+		"\u014e\u0001\u0000\u0000\u0000\u0144\u0145\u0005Q\u0000\u0000\u0145\u0146"+
+		"\u0003\b\u0004\u0000\u0146\u0147\u00036\u001b\u0000\u0147\u014e\u0001"+
+		"\u0000\u0000\u0000\u0148\u0149\u0005Q\u0000\u0000\u0149\u014a\u0003\b"+
+		"\u0004\u0000\u014a\u014b\u00034\u001a\u0000\u014b\u014c\u00036\u001b\u0000"+
+		"\u014c\u014e\u0001\u0000\u0000\u0000\u014d\u0140\u0001\u0000\u0000\u0000"+
+		"\u014d\u0144\u0001\u0000\u0000\u0000\u014d\u0148\u0001\u0000\u0000\u0000"+
+		"\u014e3\u0001\u0000\u0000\u0000\u014f\u0150\u0005@\u0000\u0000\u0150\u0151"+
+		"\u0005\u0005\u0000\u0000\u0151\u0152\u0005b\u0000\u0000\u0152\u0153\u0005"+
+		"\u0006\u0000\u0000\u0153\u0154\u0003\b\u0004\u0000\u01545\u0001\u0000"+
+		"\u0000\u0000\u0155\u0156\u0005A\u0000\u0000\u0156\u0157\u0003\b\u0004"+
+		"\u0000\u01577\u0001\u0000\u0000\u0000\u0158\u0159\u0005H\u0000\u0000\u0159"+
+		"\u015a\u0003j5\u0000\u015a9\u0001\u0000\u0000\u0000\u015b\u015c\u0005"+
+		"I\u0000\u0000\u015c\u015d\u0005b\u0000\u0000\u015d\u015f\u0005\u0005\u0000"+
+		"\u0000\u015e\u0160\u0003<\u001e\u0000\u015f\u015e\u0001\u0000\u0000\u0000"+
+		"\u015f\u0160\u0001\u0000\u0000\u0000\u0160\u0161\u0001\u0000\u0000\u0000"+
+		"\u0161\u0162\u0005\u0006\u0000\u0000\u0162\u0163\u0005\u0007\u0000\u0000"+
+		"\u0163\u0164\u0003>\u001f\u0000\u0164\u0165\u0005\b\u0000\u0000\u0165"+
+		";\u0001\u0000\u0000\u0000\u0166\u016b\u0005b\u0000\u0000\u0167\u0168\u0005"+
+		"\n\u0000\u0000\u0168\u016a\u0005b\u0000\u0000\u0169\u0167\u0001\u0000"+
+		"\u0000\u0000\u016a\u016d\u0001\u0000\u0000\u0000\u016b\u0169\u0001\u0000"+
+		"\u0000\u0000\u016b\u016c\u0001\u0000\u0000\u0000\u016c=\u0001\u0000\u0000"+
+		"\u0000\u016d\u016b\u0001\u0000\u0000\u0000\u016e\u0170\u0003\u0002\u0001"+
+		"\u0000\u016f\u016e\u0001\u0000\u0000\u0000\u016f\u0170\u0001\u0000\u0000"+
+		"\u0000\u0170?\u0001\u0000\u0000\u0000\u0171\u0173\u0005\u0003\u0000\u0000"+
+		"\u0172\u0174\u0003B!\u0000\u0173\u0172\u0001\u0000\u0000\u0000\u0173\u0174"+
+		"\u0001\u0000\u0000\u0000\u0174\u0176\u0001\u0000\u0000\u0000\u0175\u0177"+
+		"\u0005\n\u0000\u0000\u0176\u0175\u0001\u0000\u0000\u0000\u0176\u0177\u0001"+
+		"\u0000\u0000\u0000\u0177\u0179\u0001\u0000\u0000\u0000\u0178\u017a\u0003"+
+		"D\"\u0000\u0179\u0178\u0001\u0000\u0000\u0000\u0179\u017a\u0001\u0000"+
+		"\u0000\u0000\u017a\u017b\u0001\u0000\u0000\u0000\u017b\u017c\u0005\u0004"+
+		"\u0000\u0000\u017cA\u0001\u0000\u0000\u0000\u017d\u017f\u0003D\"\u0000"+
+		"\u017e\u017d\u0001\u0000\u0000\u0000\u017e\u017f\u0001\u0000\u0000\u0000"+
+		"\u017f\u0180\u0001\u0000\u0000\u0000\u0180\u0188\u0003V+\u0000\u0181\u0183"+
+		"\u0005\n\u0000\u0000\u0182\u0184\u0003D\"\u0000\u0183\u0182\u0001\u0000"+
+		"\u0000\u0000\u0183\u0184\u0001\u0000\u0000\u0000\u0184\u0185\u0001\u0000"+
+		"\u0000\u0000\u0185\u0187\u0003V+\u0000\u0186\u0181\u0001\u0000\u0000\u0000"+
+		"\u0187\u018a\u0001\u0000\u0000\u0000\u0188\u0186\u0001\u0000\u0000\u0000"+
+		"\u0188\u0189\u0001\u0000\u0000\u0000\u0189C\u0001\u0000\u0000\u0000\u018a"+
+		"\u0188\u0001\u0000\u0000\u0000\u018b\u018d\u0005\n\u0000\u0000\u018c\u018b"+
+		"\u0001\u0000\u0000\u0000\u018d\u018e\u0001\u0000\u0000\u0000\u018e\u018c"+
+		"\u0001\u0000\u0000\u0000\u018e\u018f\u0001\u0000\u0000\u0000\u018fE\u0001"+
+		"\u0000\u0000\u0000\u0190\u0191\u0005\u0007\u0000\u0000\u0191\u019a\u0005"+
+		"\b\u0000\u0000\u0192\u0193\u0005\u0007\u0000\u0000\u0193\u0195\u0003H"+
+		"$\u0000\u0194\u0196\u0005\n\u0000\u0000\u0195\u0194\u0001\u0000\u0000"+
+		"\u0000\u0195\u0196\u0001\u0000\u0000\u0000\u0196\u0197\u0001\u0000\u0000"+
+		"\u0000\u0197\u0198\u0005\b\u0000\u0000\u0198\u019a\u0001\u0000\u0000\u0000"+
+		"\u0199\u0190\u0001\u0000\u0000\u0000\u0199\u0192\u0001\u0000\u0000\u0000"+
+		"\u019aG\u0001\u0000\u0000\u0000\u019b\u01a0\u0003J%\u0000\u019c\u019d"+
+		"\u0005\n\u0000\u0000\u019d\u019f\u0003J%\u0000\u019e\u019c\u0001\u0000"+
+		"\u0000\u0000\u019f\u01a2\u0001\u0000\u0000\u0000\u01a0\u019e\u0001\u0000"+
+		"\u0000\u0000\u01a0\u01a1\u0001\u0000\u0000\u0000\u01a1I\u0001\u0000\u0000"+
+		"\u0000\u01a2\u01a0\u0001\u0000\u0000\u0000\u01a3\u01a4\u0003L&\u0000\u01a4"+
+		"\u01a5\u0005\r\u0000\u0000\u01a5\u01a6\u0003V+\u0000\u01a6\u01b7\u0001"+
+		"\u0000\u0000\u0000\u01a7\u01a8\u0003f3\u0000\u01a8\u01a9\u0005\u0005\u0000"+
+		"\u0000\u01a9\u01aa\u0005\u0006\u0000\u0000\u01aa\u01ab\u0005\u0007\u0000"+
+		"\u0000\u01ab\u01ac\u0003>\u001f\u0000\u01ac\u01ad\u0005\b\u0000\u0000"+
+		"\u01ad\u01b7\u0001\u0000\u0000\u0000\u01ae\u01af\u0003h4\u0000\u01af\u01b0"+
+		"\u0005\u0005\u0000\u0000\u01b0\u01b1\u0003N\'\u0000\u01b1\u01b2\u0005"+
+		"\u0006\u0000\u0000\u01b2\u01b3\u0005\u0007\u0000\u0000\u01b3\u01b4\u0003"+
+		">\u001f\u0000\u01b4\u01b5\u0005\b\u0000\u0000\u01b5\u01b7\u0001\u0000"+
+		"\u0000\u0000\u01b6\u01a3\u0001\u0000\u0000\u0000\u01b6\u01a7\u0001\u0000"+
+		"\u0000\u0000\u01b6\u01ae\u0001\u0000\u0000\u0000\u01b7K\u0001\u0000\u0000"+
+		"\u0000\u01b8\u01bc\u0003^/\u0000\u01b9\u01bc\u0005c\u0000\u0000\u01ba"+
+		"\u01bc\u0003\\.\u0000\u01bb\u01b8\u0001\u0000\u0000\u0000\u01bb\u01b9"+
+		"\u0001\u0000\u0000\u0000\u01bb\u01ba\u0001\u0000\u0000\u0000\u01bcM\u0001"+
+		"\u0000\u0000\u0000\u01bd\u01be\u0005b\u0000\u0000\u01beO\u0001\u0000\u0000"+
+		"\u0000\u01bf\u01c1\u0005\u0005\u0000\u0000\u01c0\u01c2\u0003R)\u0000\u01c1"+
+		"\u01c0\u0001\u0000\u0000\u0000\u01c1\u01c2\u0001\u0000\u0000\u0000\u01c2"+
+		"\u01c3\u0001\u0000\u0000\u0000\u01c3\u01c4\u0005\u0006\u0000\u0000\u01c4"+
+		"Q\u0001\u0000\u0000\u0000\u01c5\u01ca\u0003V+\u0000\u01c6\u01c7\u0005"+
+		"\n\u0000\u0000\u01c7\u01c9\u0003V+\u0000\u01c8\u01c6\u0001\u0000\u0000"+
+		"\u0000\u01c9\u01cc\u0001\u0000\u0000\u0000\u01ca\u01c8\u0001\u0000\u0000"+
+		"\u0000\u01ca\u01cb\u0001\u0000\u0000\u0000\u01cbS\u0001\u0000\u0000\u0000"+
+		"\u01cc\u01ca\u0001\u0000\u0000\u0000\u01cd\u01d2\u0003V+\u0000\u01ce\u01cf"+
+		"\u0005\n\u0000\u0000\u01cf\u01d1\u0003V+\u0000\u01d0\u01ce\u0001\u0000"+
+		"\u0000\u0000\u01d1\u01d4\u0001\u0000\u0000\u0000\u01d2\u01d0\u0001\u0000"+
+		"\u0000\u0000\u01d2\u01d3\u0001\u0000\u0000\u0000\u01d3U\u0001\u0000\u0000"+
+		"\u0000\u01d4\u01d2\u0001\u0000\u0000\u0000\u01d5\u01d6\u0006+\uffff\uffff"+
+		"\u0000\u01d6\u01d8\u0005I\u0000\u0000\u01d7\u01d9\u0005b\u0000\u0000\u01d8"+
+		"\u01d7\u0001\u0000\u0000\u0000\u01d8\u01d9\u0001\u0000\u0000\u0000\u01d9"+
+		"\u01da\u0001\u0000\u0000\u0000\u01da\u01dc\u0005\u0005\u0000\u0000\u01db"+
+		"\u01dd\u0003<\u001e\u0000\u01dc\u01db\u0001\u0000\u0000\u0000\u01dc\u01dd"+
+		"\u0001\u0000\u0000\u0000\u01dd\u01de\u0001\u0000\u0000\u0000\u01de\u01df"+
+		"\u0005\u0006\u0000\u0000\u01df\u01e0\u0005\u0007\u0000\u0000\u01e0\u01e1"+
+		"\u0003>\u001f\u0000\u01e1\u01e2\u0005\b\u0000\u0000\u01e2\u0204\u0001"+
+		"\u0000\u0000\u0000\u01e3\u01e4\u0005>\u0000\u0000\u01e4\u01e6\u0003V+"+
+		"\u0000\u01e5\u01e7\u0003P(\u0000\u01e6\u01e5\u0001\u0000\u0000\u0000\u01e6"+
+		"\u01e7\u0001\u0000\u0000\u0000\u01e7\u0204\u0001\u0000\u0000\u0000\u01e8"+
+		"\u01e9\u0005O\u0000\u0000\u01e9\u0204\u0003V+\u001e\u01ea\u01eb\u0005"+
+		"C\u0000\u0000\u01eb\u0204\u0003V+\u001d\u01ec\u01ed\u0005;\u0000\u0000"+
+		"\u01ed\u0204\u0003V+\u001c\u01ee\u01ef\u0005\u000f\u0000\u0000\u01ef\u0204"+
+		"\u0003V+\u001b\u01f0\u01f1\u0005\u0010\u0000\u0000\u01f1\u0204\u0003V"+
+		"+\u001a\u01f2\u01f3\u0005\u0011\u0000\u0000\u01f3\u0204\u0003V+\u0019"+
+		"\u01f4\u01f5\u0005\u0012\u0000\u0000\u01f5\u0204\u0003V+\u0018\u01f6\u01f7"+
+		"\u0005\u0013\u0000\u0000\u01f7\u0204\u0003V+\u0017\u01f8\u01f9\u0005\u0014"+
+		"\u0000\u0000\u01f9\u0204\u0003V+\u0016\u01fa\u0204\u0005J\u0000\u0000"+
+		"\u01fb\u0204\u0005b\u0000\u0000\u01fc\u0204\u0003Z-\u0000\u01fd\u0204"+
+		"\u0003@ \u0000\u01fe\u0204\u0003F#\u0000\u01ff\u0200\u0005\u0005\u0000"+
+		"\u0000\u0200\u0201\u0003T*\u0000\u0201\u0202\u0005\u0006\u0000\u0000\u0202"+
+		"\u0204\u0001\u0000\u0000\u0000\u0203\u01d5\u0001\u0000\u0000\u0000\u0203"+
+		"\u01e3\u0001\u0000\u0000\u0000\u0203\u01e8\u0001\u0000\u0000\u0000\u0203"+
+		"\u01ea\u0001\u0000\u0000\u0000\u0203\u01ec\u0001\u0000\u0000\u0000\u0203"+
+		"\u01ee\u0001\u0000\u0000\u0000\u0203\u01f0\u0001\u0000\u0000\u0000\u0203"+
+		"\u01f2\u0001\u0000\u0000\u0000\u0203\u01f4\u0001\u0000\u0000\u0000\u0203"+
+		"\u01f6\u0001\u0000\u0000\u0000\u0203\u01f8\u0001\u0000\u0000\u0000\u0203"+
+		"\u01fa\u0001\u0000\u0000\u0000\u0203\u01fb\u0001\u0000\u0000\u0000\u0203"+
+		"\u01fc\u0001\u0000\u0000\u0000\u0203\u01fd\u0001\u0000\u0000\u0000\u0203"+
+		"\u01fe\u0001\u0000\u0000\u0000\u0203\u01ff\u0001\u0000\u0000\u0000\u0204"+
+		"\u0248\u0001\u0000\u0000\u0000\u0205\u0206\n\u0015\u0000\u0000\u0206\u0207"+
+		"\u0007\u0000\u0000\u0000\u0207\u0247\u0003V+\u0016\u0208\u0209\n\u0014"+
+		"\u0000\u0000\u0209\u020a\u0007\u0001\u0000\u0000\u020a\u0247\u0003V+\u0015"+
+		"\u020b\u020c\n\u0013\u0000\u0000\u020c\u020d\u0007\u0002\u0000\u0000\u020d"+
+		"\u0247\u0003V+\u0014\u020e\u020f\n\u0012\u0000\u0000\u020f\u0210\u0007"+
+		"\u0003\u0000\u0000\u0210\u0247\u0003V+\u0013\u0211\u0212\n\u0011\u0000"+
+		"\u0000\u0212\u0213\u0005:\u0000\u0000\u0213\u0247\u0003V+\u0012\u0214"+
+		"\u0215\n\u0010\u0000\u0000\u0215\u0216\u0005P\u0000\u0000\u0216\u0247"+
+		"\u0003V+\u0011\u0217\u0218\n\u000f\u0000\u0000\u0218\u0219\u0007\u0004"+
+		"\u0000\u0000\u0219\u0247\u0003V+\u0010\u021a\u021b\n\u000e\u0000\u0000"+
+		"\u021b\u021c\u0005#\u0000\u0000\u021c\u0247\u0003V+\u000f\u021d\u021e"+
+		"\n\r\u0000\u0000\u021e\u021f\u0005$\u0000\u0000\u021f\u0247\u0003V+\u000e"+
+		"\u0220\u0221\n\f\u0000\u0000\u0221\u0222\u0005%\u0000\u0000\u0222\u0247"+
+		"\u0003V+\r\u0223\u0224\n\u000b\u0000\u0000\u0224\u0225\u0005&\u0000\u0000"+
+		"\u0225\u0247\u0003V+\f\u0226\u0227\n\n\u0000\u0000\u0227\u0228\u0005\'"+
+		"\u0000\u0000\u0228\u0247\u0003V+\u000b\u0229\u022a\n\t\u0000\u0000\u022a"+
+		"\u022b\u0005\f\u0000\u0000\u022b\u022c\u0003V+\u0000\u022c\u022d\u0005"+
+		"\r\u0000\u0000\u022d\u022e\u0003V+\n\u022e\u0247\u0001\u0000\u0000\u0000"+
+		"\u022f\u0230\n\b\u0000\u0000\u0230\u0231\u0005\u000b\u0000\u0000\u0231"+
+		"\u0247\u0003V+\t\u0232\u0233\n\u0007\u0000\u0000\u0233\u0234\u0003X,\u0000"+
+		"\u0234\u0235\u0003V+\b\u0235\u0247\u0001\u0000\u0000\u0000\u0236\u0237"+
+		"\n$\u0000\u0000\u0237\u0238\u0005\u0003\u0000\u0000\u0238\u0239\u0003"+
+		"T*\u0000\u0239\u023a\u0005\u0004\u0000\u0000\u023a\u0247\u0001\u0000\u0000"+
+		"\u0000\u023b\u023c\n#\u0000\u0000\u023c\u023d\u0005\u000e\u0000\u0000"+
+		"\u023d\u0247\u0003^/\u0000\u023e\u023f\n\"\u0000\u0000\u023f\u0247\u0003"+
+		"P(\u0000\u0240\u0241\n \u0000\u0000\u0241\u0242\u0004+\u0019\u0000\u0242"+
+		"\u0247\u0005\u000f\u0000\u0000\u0243\u0244\n\u001f\u0000\u0000\u0244\u0245"+
+		"\u0004+\u001b\u0000\u0245\u0247\u0005\u0010\u0000\u0000\u0246\u0205\u0001"+
+		"\u0000\u0000\u0000\u0246\u0208\u0001\u0000\u0000\u0000\u0246\u020b\u0001"+
+		"\u0000\u0000\u0000\u0246\u020e\u0001\u0000\u0000\u0000\u0246\u0211\u0001"+
+		"\u0000\u0000\u0000\u0246\u0214\u0001\u0000\u0000\u0000\u0246\u0217\u0001"+
+		"\u0000\u0000\u0000\u0246\u021a\u0001\u0000\u0000\u0000\u0246\u021d\u0001"+
+		"\u0000\u0000\u0000\u0246\u0220\u0001\u0000\u0000\u0000\u0246\u0223\u0001"+
+		"\u0000\u0000\u0000\u0246\u0226\u0001\u0000\u0000\u0000\u0246\u0229\u0001"+
+		"\u0000\u0000\u0000\u0246\u022f\u0001\u0000\u0000\u0000\u0246\u0232\u0001"+
+		"\u0000\u0000\u0000\u0246\u0236\u0001\u0000\u0000\u0000\u0246\u023b\u0001"+
+		"\u0000\u0000\u0000\u0246\u023e\u0001\u0000\u0000\u0000\u0246\u0240\u0001"+
+		"\u0000\u0000\u0000\u0246\u0243\u0001\u0000\u0000\u0000\u0247\u024a\u0001"+
+		"\u0000\u0000\u0000\u0248\u0246\u0001\u0000\u0000\u0000\u0248\u0249\u0001"+
+		"\u0000\u0000\u0000\u0249W\u0001\u0000\u0000\u0000\u024a\u0248\u0001\u0000"+
+		"\u0000\u0000\u024b\u024c\u0007\u0005\u0000\u0000\u024cY\u0001\u0000\u0000"+
+		"\u0000\u024d\u0250\u0007\u0006\u0000\u0000\u024e\u0250\u0003\\.\u0000"+
+		"\u024f\u024d\u0001\u0000\u0000\u0000\u024f\u024e\u0001\u0000\u0000\u0000"+
+		"\u0250[\u0001\u0000\u0000\u0000\u0251\u0252\u0007\u0007\u0000\u0000\u0252"+
+		"]\u0001\u0000\u0000\u0000\u0253\u0256\u0005b\u0000\u0000\u0254\u0256\u0003"+
+		"`0\u0000\u0255\u0253\u0001\u0000\u0000\u0000\u0255\u0254\u0001\u0000\u0000"+
+		"\u0000\u0256_\u0001\u0000\u0000\u0000\u0257\u025b\u0003b1\u0000\u0258"+
+		"\u025b\u0003d2\u0000\u0259\u025b\u0007\b\u0000\u0000\u025a\u0257\u0001"+
+		"\u0000\u0000\u0000\u025a\u0258\u0001\u0000\u0000\u0000\u025a\u0259\u0001"+
+		"\u0000\u0000\u0000\u025ba\u0001\u0000\u0000\u0000\u025c\u025d\u0007\t"+
+		"\u0000\u0000\u025dc\u0001\u0000\u0000\u0000\u025e\u025f\u0007\n\u0000"+
+		"\u0000\u025fe\u0001\u0000\u0000\u0000\u0260\u0261\u00043\u001c\u0000\u0261"+
+		"\u0262\u0005b\u0000\u0000\u0262\u0263\u0003L&\u0000\u0263g\u0001\u0000"+
+		"\u0000\u0000\u0264\u0265\u00044\u001d\u0000\u0265\u0266\u0005b\u0000\u0000"+
+		"\u0266\u0267\u0003L&\u0000\u0267i\u0001\u0000\u0000\u0000\u0268\u026d"+
+		"\u0005\t\u0000\u0000\u0269\u026d\u0005\u0000\u0000\u0001\u026a\u026d\u0004"+
+		"5\u001e\u0000\u026b\u026d\u00045\u001f\u0000\u026c\u0268\u0001\u0000\u0000"+
+		"\u0000\u026c\u0269\u0001\u0000\u0000\u0000\u026c\u026a\u0001\u0000\u0000"+
+		"\u0000\u026c\u026b\u0001\u0000\u0000\u0000\u026dk\u0001\u0000\u0000\u0000"+
+		"\u026e\u026f\u0005\u0000\u0000\u0001\u026fm\u0001\u0000\u0000\u00005o"+
+		"v{\u008d\u0091\u0098\u00a3\u00a8\u00b9\u00cc\u00d0\u00d4\u00de\u00e2\u00f8"+
+		"\u00fd\u0104\u010b\u011d\u0121\u0123\u012a\u0130\u0135\u014d\u015f\u016b"+
+		"\u016f\u0173\u0176\u0179\u017e\u0183\u0188\u018e\u0195\u0199\u01a0\u01b6"+
+		"\u01bb\u01c1\u01ca\u01d2\u01d8\u01dc\u01e6\u0203\u0246\u0248\u024f\u0255"+
+		"\u025a\u026c";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

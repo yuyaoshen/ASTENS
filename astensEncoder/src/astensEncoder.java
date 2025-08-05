@@ -6,7 +6,7 @@ public class astensEncoder {
 	public static void main(String args[]) throws IOException {
 		String currentPath = "test/";
 		Boolean exportNodeValue = true;
-		Boolean exportDot = true;
+		Boolean exportDot = false;
 		Boolean coloredNodeFlag = true;
 
 		String srcPath = currentPath + "/source/";

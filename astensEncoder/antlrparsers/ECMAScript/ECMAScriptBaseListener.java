@@ -1,4 +1,4 @@
-// Generated from ECMAScript.g4 by ANTLR 4.9.2
+// Generated from ECMAScript.g4 by ANTLR 4.13.2
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -9,6 +9,7 @@ import org.antlr.v4.runtime.tree.TerminalNode;
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
+@SuppressWarnings("CheckReturnValue")
 public class ECMAScriptBaseListener implements ECMAScriptListener {
 	/**
 	 * {@inheritDoc}
@@ -135,13 +136,13 @@ public class ECMAScriptBaseListener implements ECMAScriptListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEmptyStatement(ECMAScriptParser.EmptyStatementContext ctx) { }
+	@Override public void enterEmptyStatement_(ECMAScriptParser.EmptyStatement_Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEmptyStatement(ECMAScriptParser.EmptyStatementContext ctx) { }
+	@Override public void exitEmptyStatement_(ECMAScriptParser.EmptyStatement_Context ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1186,18 +1187,6 @@ public class ECMAScriptBaseListener implements ECMAScriptListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitEof(ECMAScriptParser.EofContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterIdentifierNonterminal(ECMAScriptParser.IdentifierNonterminalContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitIdentifierNonterminal(ECMAScriptParser.IdentifierNonterminalContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

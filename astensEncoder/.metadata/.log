@@ -1,0 +1,13 @@
+!SESSION 2025-03-12 11:34:48.660 -----------------------------------------------
+eclipse.buildId=4.34.0.20241128-0756
+java.version=21.0.6
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=aarch64, WS=cocoa, NL=zh_CN_#Hans
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os macosx -ws cocoa -arch aarch64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2025-03-12 11:34:49.983
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2025-03-12 11:38:47.838
+!MESSAGE Logback config file: /Users/yys/Documents/GitHub/ASTENS/astensEncoder/.metadata/.plugins/org.eclipse.m2e.logback/logback.2.7.0.20241001-1350.xml

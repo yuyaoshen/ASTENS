@@ -157,6 +157,7 @@ UnexpectedCharacter=103
 'case'=60
 'else'=61
 'new'=62
+'var'=63
 'catch'=64
 'finally'=65
 'return'=66

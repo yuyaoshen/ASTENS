@@ -1,4 +1,4 @@
-// Generated from ECMAScript.g4 by ANTLR 4.9.2
+// Generated from ECMAScript.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -107,15 +107,15 @@ public interface ECMAScriptListener extends ParseTreeListener {
 	 */
 	void exitInitialiser(ECMAScriptParser.InitialiserContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ECMAScriptParser#emptyStatement}.
+	 * Enter a parse tree produced by {@link ECMAScriptParser#emptyStatement_}.
 	 * @param ctx the parse tree
 	 */
-	void enterEmptyStatement(ECMAScriptParser.EmptyStatementContext ctx);
+	void enterEmptyStatement_(ECMAScriptParser.EmptyStatement_Context ctx);
 	/**
-	 * Exit a parse tree produced by {@link ECMAScriptParser#emptyStatement}.
+	 * Exit a parse tree produced by {@link ECMAScriptParser#emptyStatement_}.
 	 * @param ctx the parse tree
 	 */
-	void exitEmptyStatement(ECMAScriptParser.EmptyStatementContext ctx);
+	void exitEmptyStatement_(ECMAScriptParser.EmptyStatement_Context ctx);
 	/**
 	 * Enter a parse tree produced by {@link ECMAScriptParser#expressionStatement}.
 	 * @param ctx the parse tree
@@ -1078,14 +1078,4 @@ public interface ECMAScriptListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitEof(ECMAScriptParser.EofContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link ECMAScriptParser#identifierNonterminal}.
-	 * @param ctx the parse tree
-	 */
-	void enterIdentifierNonterminal(ECMAScriptParser.IdentifierNonterminalContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link ECMAScriptParser#identifierNonterminal}.
-	 * @param ctx the parse tree
-	 */
-	void exitIdentifierNonterminal(ECMAScriptParser.IdentifierNonterminalContext ctx);
 }

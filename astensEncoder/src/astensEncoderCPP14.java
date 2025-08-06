@@ -49,11 +49,13 @@ public class astensEncoderCPP14 {
 				// reading source code file
 				String filename = files[i].getName();
 				String language = filename.split("\\.")[filename.split("\\.").length - 1];
-				if (language.equals("c") | language.equals("cpp")) {
+				if (language.equals("cpp")) {
 					System.out.println(filename);
 					File file = new File(srcPath + filename);
 					byte[] encoded = Files.readAllBytes(file.toPath());
 					String inputString = new String(encoded, Charset.forName("UTF-8"));
+					// with UTF-8(BOM)
+					inputString = inputString.replaceAll("\\uFEFF", "");
 
 					level = new ArrayList<String>();
 					structureCoding = new ArrayList<String>();

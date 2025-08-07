@@ -54,6 +54,8 @@ public class astensEncoderJava {
 					File file = new File(srcPath + filename);
 					byte[] encoded = Files.readAllBytes(file.toPath());
 					String inputString = new String(encoded, Charset.forName("UTF-8"));
+					// with UTF-8(BOM)
+					inputString = inputString.replaceAll("\\uFEFF", "");
 
 					level = new ArrayList<String>();
 					structureCoding = new ArrayList<String>();

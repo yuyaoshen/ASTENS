@@ -21,6 +21,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
 
 public class astensEncoderPython3 {
 	static String currentPath;
+	static String TraversalOrder;
 	static Boolean exportNodeValue;
 	static Boolean exportDot;
 	static Boolean coloredNodeFlag;
@@ -75,7 +76,10 @@ public class astensEncoderPython3 {
 					}
 
 					try {
-						generateAST(ctx, false, 0);
+						if (TraversalOrder == "PreOrder")
+							generateAST_PreOT(ctx, false, 0);
+						if (TraversalOrder == "PostOrder")
+							generateAST_PostOT(ctx, false, 0);
 					} catch (NullPointerException e) {
 						Files.move(Paths.get(files[i].getPath()), Paths.get(errorPath + filename),
 								StandardCopyOption.REPLACE_EXISTING);
@@ -109,7 +113,7 @@ public class astensEncoderPython3 {
 						ps.close();
 					}
 
-					if (exportDot) {
+					if (exportDot && (TraversalOrder == "PreOrder")) {
 						File writeDOTfile = new File(dotPath + filename + ".dot");
 						if (writeDOTfile.exists())
 							writeDOTfile.delete();
@@ -130,7 +134,7 @@ public class astensEncoderPython3 {
 		}
 	}
 
-	private static void generateAST(RuleContext ctx, boolean verbose, int indentation) {
+	private static void generateAST_PreOT(RuleContext ctx, boolean verbose, int indentation) {
 		boolean toBeIgnored = !verbose && ctx.getChildCount() == 1 && ctx.getChild(0) instanceof ParserRuleContext;
 
 		if (!toBeIgnored) {
@@ -161,8 +165,44 @@ public class astensEncoderPython3 {
 		for (int i = 0; i < ctx.getChildCount(); i++) {
 			ParseTree element = ctx.getChild(i);
 			if (element instanceof RuleContext) {
-				generateAST((RuleContext) element, verbose, indentation + (toBeIgnored ? 0 : 1));
+				generateAST_PreOT((RuleContext) element, verbose, indentation + (toBeIgnored ? 0 : 1));
 			}
+		}
+	}
+
+	private static void generateAST_PostOT(RuleContext ctx, boolean verbose, int indentation) {
+		boolean toBeIgnored = !verbose && ctx.getChildCount() == 1 && ctx.getChild(0) instanceof ParserRuleContext;
+
+		for (int i = 0; i < ctx.getChildCount(); i++) {
+			ParseTree element = ctx.getChild(i);
+			if (element instanceof RuleContext) {
+				generateAST_PostOT((RuleContext) element, verbose, indentation + (toBeIgnored ? 0 : 1));
+			}
+		}
+		if (!toBeIgnored) {
+			// get the level of each node
+			level.add(Integer.toString(indentation));
+
+			// get the node type of each node and its type coding
+			String ruleName = Python3Parser.ruleNames[ctx.getRuleIndex()];
+			String ruleIndex = "unknown";
+			String ruleToken = " ";
+			Token startToken = ((ParserRuleContext) ctx).start;
+			Token stopToken = ((ParserRuleContext) ctx).stop;
+			if (startToken.getTokenIndex() == stopToken.getTokenIndex())
+				ruleToken = startToken.getText();
+			int nodeID = ctx.getRuleIndex();
+			if (nodeID < 10)
+				ruleIndex = "00" + Integer.toString(nodeID);
+			else if (nodeID < 100)
+				ruleIndex = "0" + Integer.toString(nodeID);
+			else
+				ruleIndex = Integer.toString(nodeID);
+			nodeType.add(ruleName);
+			nodeToken.add(ruleToken);
+			typeCoding.add(ruleIndex);
+			lineNumber.add(Integer.toString(((ParserRuleContext) ctx).getStart().getLine()));
+			seqPosNumber.add(Integer.toString(((ParserRuleContext) ctx).getStart().getStartIndex()));
 		}
 	}
 

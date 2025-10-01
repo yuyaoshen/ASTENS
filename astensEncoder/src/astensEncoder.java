@@ -5,6 +5,7 @@ public class astensEncoder {
 
 	public static void main(String args[]) throws IOException {
 		String currentPath = "test/";
+		String TraversalOrder = "PreOrder";
 		Boolean exportNodeValue = true;
 		Boolean exportDot = true;
 		Boolean coloredNodeFlag = true;
@@ -34,6 +35,7 @@ public class astensEncoder {
 
 			astensEncoderC astensC = new astensEncoderC();
 			astensC.currentPath = currentPath;
+			astensC.TraversalOrder = TraversalOrder;
 			astensC.exportNodeValue = exportNodeValue;
 			astensC.exportDot = exportDot;
 			astensC.coloredNodeFlag = coloredNodeFlag;
@@ -41,6 +43,7 @@ public class astensEncoder {
 
 			astensEncoderCPP14 astensCPP14 = new astensEncoderCPP14();
 			astensCPP14.currentPath = currentPath;
+			astensCPP14.TraversalOrder = TraversalOrder;
 			astensCPP14.exportNodeValue = exportNodeValue;
 			astensCPP14.exportDot = exportDot;
 			astensCPP14.coloredNodeFlag = coloredNodeFlag;
@@ -48,6 +51,7 @@ public class astensEncoder {
 
 			astensEncoderJava astensJava = new astensEncoderJava();
 			astensJava.currentPath = currentPath;
+			astensJava.TraversalOrder = TraversalOrder;
 			astensJava.exportNodeValue = exportNodeValue;
 			astensJava.exportDot = exportDot;
 			astensJava.coloredNodeFlag = coloredNodeFlag;
@@ -55,18 +59,21 @@ public class astensEncoder {
 
 			astensEncoderPython3 astensPython3 = new astensEncoderPython3();
 			astensPython3.currentPath = currentPath;
+			astensPython3.TraversalOrder = TraversalOrder;
 			astensPython3.exportNodeValue = exportNodeValue;
 			astensPython3.exportDot = exportDot;
 			astensPython3.EncodingASTENS();
 
 			astensEncoderECMAScript astensECMAScript = new astensEncoderECMAScript();
 			astensECMAScript.currentPath = currentPath;
+			astensECMAScript.TraversalOrder = TraversalOrder;
 			astensECMAScript.exportNodeValue = exportNodeValue;
 			astensECMAScript.exportDot = exportDot;
 			astensECMAScript.EncodingASTENS();
 
 			astensEncoderGolang astensGolang = new astensEncoderGolang();
 			astensGolang.currentPath = currentPath;
+			astensGolang.TraversalOrder = TraversalOrder;
 			astensGolang.exportNodeValue = exportNodeValue;
 			astensGolang.exportDot = exportDot;
 			astensGolang.EncodingASTENS();
